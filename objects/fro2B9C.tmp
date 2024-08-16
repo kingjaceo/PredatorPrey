@@ -1,0 +1,58 @@
+[gd_scene load_steps=10 format=3 uid="uid://4affcnfwqt23"]
+
+[ext_resource type="Script" path="res://entities/entity.gd" id="1_tyo1j"]
+[ext_resource type="Script" path="res://objects/AIController.gd" id="2_1qgj2"]
+[ext_resource type="Script" path="res://objects/wander.gd" id="3_57v3i"]
+[ext_resource type="Script" path="res://objects/chase.gd" id="3_c1551"]
+[ext_resource type="Texture2D" uid="uid://c4hluuy7aj8jl" path="res://icon.svg" id="3_js041"]
+[ext_resource type="Script" path="res://objects/eat.gd" id="5_g671y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ihvhq"]
+radius = 59.0762
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ohftr"]
+radius = 204.365
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o7fjc"]
+radius = 626.039
+
+[node name="Frog" type="Node2D"]
+script = ExtResource("1_tyo1j")
+
+[node name="Controller" type="Node" parent="."]
+script = ExtResource("2_1qgj2")
+
+[node name="Wander" type="Node" parent="Controller"]
+script = ExtResource("3_57v3i")
+
+[node name="Chase" type="Node" parent="Controller"]
+script = ExtResource("3_c1551")
+
+[node name="Eat" type="Node" parent="Controller"]
+script = ExtResource("5_g671y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.290196, 0.231373, 1)
+scale = Vector2(0.609375, 0.609375)
+texture = ExtResource("3_js041")
+
+[node name="FoodConsumer" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FoodConsumer"]
+shape = SubResource("CircleShape2D_ihvhq")
+
+[node name="FoodDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FoodDetector"]
+shape = SubResource("CircleShape2D_ohftr")
+
+[node name="ThreatDetector" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ThreatDetector"]
+shape = SubResource("CircleShape2D_o7fjc")

@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://bxvkkdce3ffhv"]
+
+[ext_resource type="Script" path="res://entities/entity.gd" id="1_4rcdh"]
+[ext_resource type="Texture2D" uid="uid://c4hluuy7aj8jl" path="res://icon.svg" id="2_05vy8"]
+[ext_resource type="PackedScene" uid="uid://d15l7647iimo5" path="res://player_controller.tscn" id="2_cwu7b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kwgtw"]
+radius = 59.0762
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_uvic4"]
+radius = 204.365
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_66fwy"]
+radius = 626.039
+
+[node name="Cricket" type="Node2D"]
+script = ExtResource("1_4rcdh")
+
+[node name="PlayerController" parent="." instance=ExtResource("2_cwu7b")]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0, 0.290196, 0.231373, 1)
+scale = Vector2(0.609375, 0.609375)
+texture = ExtResource("2_05vy8")
+
+[node name="FoodConsumer" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FoodConsumer"]
+shape = SubResource("CircleShape2D_kwgtw")
+
+[node name="FoodDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FoodDetector"]
+shape = SubResource("CircleShape2D_uvic4")
+
+[node name="ThreatDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ThreatDetector"]
+shape = SubResource("CircleShape2D_66fwy")
+
+[connection signal="area_entered" from="FoodConsumer" to="." method="_on_food_detected"]

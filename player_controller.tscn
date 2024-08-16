@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=3 uid="uid://d15l7647iimo5"]
+
+[ext_resource type="Script" path="res://entities/player_controller.gd" id="1_7w6v2"]
+[ext_resource type="Script" path="res://player_ui.gd" id="2_0rcep"]
+
+[node name="PlayerController" type="Node"]
+script = ExtResource("1_7w6v2")
+
+[node name="PlayerUI" type="CanvasLayer" parent="."]
+script = ExtResource("2_0rcep")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PlayerUI"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -102.0
+offset_top = -37.0
+offset_right = 102.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Lifetime" type="ProgressBar" parent="PlayerUI/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 10.0
+
+[node name="Control" type="Control" parent="PlayerUI/HBoxContainer"]
+custom_minimum_size = Vector2(20, 0)
+layout_mode = 2
+
+[node name="Dash" type="ProgressBar" parent="PlayerUI/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
