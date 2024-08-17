@@ -25,6 +25,6 @@ func _on_trigger(trigger: Area2D):
 	pass
 
 
-func _on_untrigger(trigger: Area2D):
+func _on_untrigger():
 	pass
 

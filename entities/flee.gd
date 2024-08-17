@@ -29,7 +29,7 @@ func _on_trigger(trigger: Area2D):
 		target = trigger
 
 
-func _on_untrigger(trigger: Area2D):
+func _on_untrigger():
 	target = null
 	fleeing = false
 	await get_tree().create_timer(flee_time_s).timeout

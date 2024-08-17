@@ -25,17 +25,13 @@ func execute(delta):
 
 func _on_trigger(trigger: Area2D):
 	priority = 10
-	var distance_to_trigger = entity.position.distance_to(trigger.global_position)
-	var distance_to_target = INF
-	if target:
-		distance_to_target = entity.position.distance_to(target.global_position)
-	if not target or distance_to_trigger < distance_to_target:
+	if not target:
 		target = trigger
 
 
-func _on_untrigger(trigger: Area2D):
+func _on_untrigger():
 	target = null
-	await get_tree().create_timer(chase_time_s).timeout
+	#await get_tree().create_timer(chase_time_s).timeout
 	priority = 0
 
 
