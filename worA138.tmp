@@ -11,7 +11,6 @@
 
 [node name="Background" type="CanvasLayer" parent="."]
 layer = -1
-follow_viewport_enabled = true
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
 anchors_preset = 15
@@ -47,5 +46,4 @@ max_x = 1900.0
 initial_population = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(575, 318)
 script = ExtResource("6_4hqwx")
