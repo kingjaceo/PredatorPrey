@@ -8,7 +8,7 @@ extends Node2D
 
 @export var vision_radius: float = 100
 
-@export var consumption_factor: float = 0.5
+@export var consumption: float = 0.5
 @export var food_amount: float = 1.0
 
 @export var baby_requirement: float = 10.0
@@ -27,6 +27,13 @@ func _process(delta):
 		_spawn_baby()
 	if lifetime <= 0:
 		queue_free()
+
+func _eat(trigger: Area2D):
+	var food = trigger.get_parent()
+	baby_progress += food.food_amount
+	lifetime += food.food_amount
+	food.queue_free()
+
 
 func _spawn_baby():
 	baby_progress = 0

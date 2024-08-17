@@ -1,6 +1,6 @@
 extends Label
 
-@onready var cricket_controller = $"../CricketController"
+@onready var controller = $"../Controller"
 
 func _process(_delta):
-	text = cricket_controller.current_behavior.name
+	text = controller.current_behavior.name

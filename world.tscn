@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://b7xmp3h05tndc"]
 
-[ext_resource type="Texture2D" uid="uid://c4hluuy7aj8jl" path="res://icon.svg" id="1_f768u"]
+[ext_resource type="Texture2D" uid="uid://bt13rb4d1ufs6" path="res://Grass tile.png" id="1_smrne"]
 [ext_resource type="PackedScene" uid="uid://bxvkkdce3ffhv" path="res://entities/cricket.tscn" id="2_ul88c"]
 [ext_resource type="PackedScene" uid="uid://bsebbdh5hyqsm" path="res://objects/seed.tscn" id="3_k57fr"]
 [ext_resource type="PackedScene" uid="uid://4affcnfwqt23" path="res://objects/frog.tscn" id="4_5l7vc"]
@@ -12,25 +12,34 @@
 layer = -1
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
-modulate = Color(1, 1, 1, 0.0666667)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_f768u")
+texture = ExtResource("1_smrne")
 stretch_mode = 1
-
-[node name="Frog" parent="." instance=ExtResource("4_5l7vc")]
-position = Vector2(562, 367)
-wander_speed = 200.0
-
-[node name="Cricket" parent="." instance=ExtResource("2_ul88c")]
-position = Vector2(687, 423)
 
 [node name="SeedSpawner" type="Node" parent="."]
 script = ExtResource("4_cimsb")
 scene = ExtResource("3_k57fr")
-time_between_spawns_s = 0.2
+time_between_spawns_s = 0.1
 max_y = 1200.0
 max_x = 1900.0
+initial_population = 1000
+
+[node name="CricketSpawner" type="Node" parent="."]
+script = ExtResource("4_cimsb")
+scene = ExtResource("2_ul88c")
+time_between_spawns_s = 0.0
+max_y = 1200.0
+max_x = 1900.0
+initial_population = 10
+
+[node name="FrogSpawner" type="Node" parent="."]
+script = ExtResource("4_cimsb")
+scene = ExtResource("4_5l7vc")
+time_between_spawns_s = 0.0
+max_y = 1200.0
+max_x = 1900.0
+initial_population = 1

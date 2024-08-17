@@ -1,4 +1,3 @@
-@tool
 class_name Vision
 extends Area2D
 
@@ -14,8 +13,6 @@ func _ready():
 	entity = get_parent()
 	area_entered.connect(_on_area_entered)
 	area_exited.connect(_on_area_exited)
-
-func _process(_delta):
 	collision_shape.shape.radius = entity.vision_radius
 
 

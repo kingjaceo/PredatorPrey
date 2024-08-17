@@ -3,7 +3,7 @@ extends Behavior
 
 @export var wander_distance: float = 100
 var destination: Vector2
-@export var tolerance: float = 1
+@export var tolerance: float = 10
 
 
 func _ready():

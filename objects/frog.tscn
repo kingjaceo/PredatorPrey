@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://4affcnfwqt23"]
+[gd_scene load_steps=9 format=3 uid="uid://4affcnfwqt23"]
 
 [ext_resource type="Script" path="res://entities/entity.gd" id="1_tyo1j"]
-[ext_resource type="PackedScene" uid="uid://d15l7647iimo5" path="res://player_controller.tscn" id="2_4p1q3"]
+[ext_resource type="PackedScene" uid="uid://6djvyq44gdsm" path="res://frog_controller.tscn" id="2_bp0gq"]
 [ext_resource type="Texture2D" uid="uid://c4hluuy7aj8jl" path="res://icon.svg" id="3_js041"]
 [ext_resource type="Script" path="res://entities/vision.gd" id="4_1myky"]
+[ext_resource type="Script" path="res://entities/controller_debugger.gd" id="5_2vlix"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvhq"]
 radius = 59.0762
@@ -19,7 +20,10 @@ script = ExtResource("1_tyo1j")
 wander_speed = 600.0
 dash_speed = 600.0
 dash_length_s = 10.0
+vision_radius = 600.0
 food_amount = 10.0
+
+[node name="Controller" parent="." instance=ExtResource("2_bp0gq")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 0.290196, 0.231373, 1)
@@ -49,4 +53,22 @@ script = ExtResource("4_1myky")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ThreatDetector"]
 shape = SubResource("CircleShape2D_o7fjc")
 
-[node name="PlayerController" parent="." instance=ExtResource("2_4p1q3")]
+[node name="Debugger" type="Label" parent="."]
+z_index = 2
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_top = 15.0
+offset_right = 40.0
+offset_bottom = 38.0
+grow_horizontal = 2
+text = "BEHAVIOR"
+horizontal_alignment = 1
+script = ExtResource("5_2vlix")
+
+[connection signal="area_entered" from="Body" to="." method="_eat"]
+[connection signal="closer_target_detected" from="FoodDetector" to="Controller/Chase" method="_on_trigger"]
+[connection signal="no_target_detected" from="FoodDetector" to="Controller/Chase" method="_on_untrigger"]
+
+[editable path="Controller"]
