@@ -1,16 +1,16 @@
 [gd_scene load_steps=15 format=3 uid="uid://bxvkkdce3ffhv"]
 
 [ext_resource type="Script" path="res://entities/entity.gd" id="1_4rcdh"]
-[ext_resource type="Script" path="res://objects/AIController.gd" id="2_p7vml"]
-[ext_resource type="Script" path="res://objects/wander.gd" id="3_wv0m5"]
-[ext_resource type="Script" path="res://entities/flee.gd" id="4_7n51w"]
-[ext_resource type="Script" path="res://entities/destination_debugger.gd" id="4_cjeak"]
-[ext_resource type="Script" path="res://objects/eat.gd" id="4_m7hgh"]
-[ext_resource type="Script" path="res://entities/direction_debugger.gd" id="5_2yedu"]
-[ext_resource type="Script" path="res://objects/chase.gd" id="6_8xvaf"]
-[ext_resource type="Script" path="res://entities/controller_debugger.gd" id="9_e3v6n"]
-[ext_resource type="Texture2D" uid="uid://bpqbhyb35a5sb" path="res://Cricket icon.png" id="9_hmfk6"]
+[ext_resource type="Script" path="res://entities/controllers/AIController.gd" id="2_be7gl"]
+[ext_resource type="Script" path="res://entities/behaviors/wander.gd" id="3_iqfq2"]
+[ext_resource type="Script" path="res://entities/behaviors/destination_debugger.gd" id="4_4m1xe"]
+[ext_resource type="Script" path="res://entities/behaviors/flee.gd" id="5_2mv76"]
+[ext_resource type="Script" path="res://entities/behaviors/direction_debugger.gd" id="6_h430b"]
+[ext_resource type="Script" path="res://entities/behaviors/chase.gd" id="7_p5pyf"]
+[ext_resource type="Script" path="res://entities/behaviors/eat.gd" id="8_wjhut"]
+[ext_resource type="Texture2D" uid="uid://bpqbhyb35a5sb" path="res://entities/Cricket icon.png" id="9_kuxd3"]
 [ext_resource type="Script" path="res://entities/vision.gd" id="10_dio75"]
+[ext_resource type="Script" path="res://entities/controllers/controller_debugger.gd" id="11_n0j7o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_kwgtw"]
 radius = 27.2947
@@ -29,34 +29,34 @@ vision_radius = 200.0
 food_amount = 2.5
 
 [node name="Controller" type="Node" parent="."]
-script = ExtResource("2_p7vml")
+script = ExtResource("2_be7gl")
 
 [node name="Wander" type="Node" parent="Controller"]
-script = ExtResource("3_wv0m5")
+script = ExtResource("3_iqfq2")
 
 [node name="Debugger" type="Node2D" parent="Controller/Wander"]
-script = ExtResource("4_cjeak")
+script = ExtResource("4_4m1xe")
 
 [node name="Flee" type="Node" parent="Controller"]
-script = ExtResource("4_7n51w")
+script = ExtResource("5_2mv76")
 
 [node name="Debugger" type="Node2D" parent="Controller/Flee"]
-script = ExtResource("5_2yedu")
+script = ExtResource("6_h430b")
 
 [node name="Chase" type="Node" parent="Controller"]
-script = ExtResource("6_8xvaf")
+script = ExtResource("7_p5pyf")
 chase_time_s = 10.0
 
 [node name="Debugger" type="Node2D" parent="Controller/Chase"]
-script = ExtResource("4_cjeak")
+script = ExtResource("4_4m1xe")
 
 [node name="Eat" type="Node" parent="Controller"]
-script = ExtResource("4_m7hgh")
+script = ExtResource("8_wjhut")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.25098, 0.737255, 0.509804, 1)
 scale = Vector2(0.3125, 0.3125)
-texture = ExtResource("9_hmfk6")
+texture = ExtResource("9_kuxd3")
 
 [node name="Body" type="Area2D" parent="."]
 collision_layer = 2
@@ -74,6 +74,7 @@ shape = SubResource("CircleShape2D_uvic4")
 [node name="ThreatDetector" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 252
+script = ExtResource("10_dio75")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ThreatDetector"]
 shape = SubResource("CircleShape2D_66fwy")
@@ -90,8 +91,10 @@ offset_bottom = 38.0
 grow_horizontal = 2
 text = "BEHAVIOR"
 horizontal_alignment = 1
-script = ExtResource("9_e3v6n")
+script = ExtResource("11_n0j7o")
 
 [connection signal="area_entered" from="Body" to="." method="_eat"]
 [connection signal="closer_target_detected" from="FoodDetector" to="Controller/Chase" method="_on_trigger"]
 [connection signal="no_target_detected" from="FoodDetector" to="Controller/Chase" method="_on_untrigger"]
+[connection signal="closer_target_detected" from="ThreatDetector" to="Controller/Flee" method="_on_trigger"]
+[connection signal="no_target_detected" from="ThreatDetector" to="Controller/Flee" method="_on_untrigger"]

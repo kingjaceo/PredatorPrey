@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bpqbhyb35a5sb"
-path="res://.godot/imported/Cricket icon.png-ba4a4ec1f5f8e19fd39cf9e51e590a1c.ctex"
+path="res://.godot/imported/Cricket icon.png-dbd9d5aec45e99b8f85e391de8a60293.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Cricket icon.png"
-dest_files=["res://.godot/imported/Cricket icon.png-ba4a4ec1f5f8e19fd39cf9e51e590a1c.ctex"]
+source_file="res://entities/Cricket icon.png"
+dest_files=["res://.godot/imported/Cricket icon.png-dbd9d5aec45e99b8f85e391de8a60293.ctex"]
 
 [params]
 
