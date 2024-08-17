@@ -7,5 +7,7 @@ func execute(delta):
 
 
 func _on_trigger(trigger: Area2D): # assume trigger is child of entity
-	trigger.get_parent().queue_free()
-	entity.lifetime = entity.max_lifetime
+	var food = trigger.get_parent()
+	entity.baby_progress += food.food_amount
+	entity.lifetime += food.food_amount
+	food.queue_free()

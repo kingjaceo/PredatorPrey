@@ -5,10 +5,17 @@ extends Behavior
 var destination: Vector2
 @export var tolerance: float = 1
 
+
 func _ready():
 	priority = 1
 	entity = get_parent().get_parent()
 	_choose_new_destination()
+
+
+func start():
+	_choose_new_destination()
+	active = true
+
 
 func execute(delta):
 	if entity.position.distance_to(destination) < tolerance:

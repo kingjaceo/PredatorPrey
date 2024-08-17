@@ -6,21 +6,29 @@ extends Node2D
 @export var dash_length_s: float = 1.0
 @export var dash_cooldown_s: float = 5.0
 
-@export var idle_consumption: float = 0.5
-@export var max_lifetime: float = 10.0
-var lifetime: float
+@export var vision_radius: float = 100
 
+@export var consumption_factor: float = 0.5
+@export var food_amount: float = 1.0
+
+@export var baby_requirement: float = 10.0
+
+@export var max_lifetime: float = 10.0
+
+var lifetime: float
+var baby_progress: float = 0.0
 
 func _ready():
 	lifetime = max_lifetime
 
 
 func _process(delta):
-	lifetime -= delta * idle_consumption
+	if baby_progress > baby_requirement:
+		_spawn_baby()
 	if lifetime <= 0:
 		queue_free()
 
-
-func _on_food_detected(area: Area2D):
-	lifetime = 10
-	area.queue_free()
+func _spawn_baby():
+	baby_progress = 0
+	var baby = duplicate()
+	get_parent().add_child(baby)

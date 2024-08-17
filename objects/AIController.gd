@@ -1,6 +1,5 @@
 class_name AIController
 extends Node
-# depends on being attached to an Entity
 
 var current_behavior: Behavior
 
@@ -15,6 +14,13 @@ func _process(delta):
 
 
 func _check_update_current_behavior():
+	var new_behavior = current_behavior
 	for child in get_children():
 		if child.priority > current_behavior.priority:
-			current_behavior = child
+			new_behavior = child
+	
+	if new_behavior != current_behavior:
+		current_behavior.end()
+		current_behavior = new_behavior
+		current_behavior.start()
+		

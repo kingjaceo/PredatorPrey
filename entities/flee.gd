@@ -10,8 +10,9 @@ var dash_time_s: float = 0
 @export var flee_time_s: float = 1
 var fleeing: bool = false
 
+
 func execute(delta):
-	if not is_instance_valid(target):
+	if target and not is_instance_valid(target):
 		return
 		
 	if target:

@@ -1,24 +1,24 @@
 [gd_scene load_steps=7 format=3 uid="uid://4affcnfwqt23"]
 
 [ext_resource type="Script" path="res://entities/entity.gd" id="1_tyo1j"]
-[ext_resource type="PackedScene" uid="uid://d15l7647iimo5" path="res://player_controller.tscn" id="2_4p1q3"]
 [ext_resource type="Texture2D" uid="uid://c4hluuy7aj8jl" path="res://icon.svg" id="3_js041"]
+[ext_resource type="Script" path="res://entities/vision.gd" id="4_1myky"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvhq"]
 radius = 59.0762
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ohftr"]
-radius = 204.365
+radius = 100.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_o7fjc"]
-radius = 626.039
+radius = 100.0
 
 [node name="Frog" type="Node2D"]
 script = ExtResource("1_tyo1j")
-dash_speed = 50.0
-dash_length_s = 0.2
-
-[node name="PlayerController" parent="." instance=ExtResource("2_4p1q3")]
+wander_speed = 600.0
+dash_speed = 600.0
+dash_length_s = 10.0
+food_amount = 10.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 0.290196, 0.231373, 1)
@@ -33,17 +33,17 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_ihvhq")
 
 [node name="FoodDetector" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
-collision_mask = 0
+collision_mask = 2
+script = ExtResource("4_1myky")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FoodDetector"]
 shape = SubResource("CircleShape2D_ohftr")
 
 [node name="ThreatDetector" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
 collision_mask = 0
+script = ExtResource("4_1myky")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ThreatDetector"]
 shape = SubResource("CircleShape2D_o7fjc")

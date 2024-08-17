@@ -1,7 +1,7 @@
 class_name PlayerController
 extends Node
 
-var parent: Entity
+var entity: Entity
 var direction: Vector2
 var can_dash: bool = true
 var dash_time: float = 0.0
@@ -9,7 +9,7 @@ var time_since_last_dash: float = 0.0
 
 
 func _ready():
-	parent = get_parent()
+	entity = get_parent()
 
 
 func _process(delta):
@@ -29,19 +29,24 @@ func _process(delta):
 	time_since_last_dash += delta
 	_check_update_can_dash(delta)
 	if Input.is_action_pressed("dash") and can_dash:
-		position_change = direction * parent.dash_speed * delta
+		position_change = direction * entity.dash_speed * delta
 		dash_time += delta
 		time_since_last_dash = 0
 	else:
-		position_change = direction * parent.wander_speed * delta
+		position_change = direction * entity.wander_speed * delta
 	
-	parent.position += position_change
+	entity.position += position_change
 
 
 func _check_update_can_dash(delta):
 	# this gets called every frame
-	if dash_time > parent.dash_length_s:
+	if dash_time > entity.dash_length_s:
 		can_dash = false
 		dash_time = 0.0
-	if time_since_last_dash > parent.dash_cooldown_s:
+	if time_since_last_dash > entity.dash_cooldown_s:
 		can_dash = true
+
+
+func _on_food_detected(area: Area2D):
+	entity.lifetime = entity.max_lifetime
+	area.get_parent().queue_free()

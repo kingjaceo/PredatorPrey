@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://b7xmp3h05tndc"]
+[gd_scene load_steps=6 format=3 uid="uid://b7xmp3h05tndc"]
 
 [ext_resource type="Texture2D" uid="uid://c4hluuy7aj8jl" path="res://icon.svg" id="1_f768u"]
 [ext_resource type="PackedScene" uid="uid://bxvkkdce3ffhv" path="res://entities/cricket.tscn" id="2_ul88c"]
 [ext_resource type="PackedScene" uid="uid://bsebbdh5hyqsm" path="res://objects/seed.tscn" id="3_k57fr"]
 [ext_resource type="PackedScene" uid="uid://4affcnfwqt23" path="res://objects/frog.tscn" id="4_5l7vc"]
+[ext_resource type="Script" path="res://spawner.gd" id="4_cimsb"]
 
 [node name="World" type="Node2D"]
 
@@ -11,7 +12,7 @@
 layer = -1
 
 [node name="TextureRect" type="TextureRect" parent="Background"]
-modulate = Color(1, 1, 1, 0.34902)
+modulate = Color(1, 1, 1, 0.0666667)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -20,21 +21,16 @@ grow_vertical = 2
 texture = ExtResource("1_f768u")
 stretch_mode = 1
 
-[node name="Seed" parent="." instance=ExtResource("3_k57fr")]
-visible = false
-position = Vector2(590, 416)
-
-[node name="Seed2" parent="." instance=ExtResource("3_k57fr")]
-visible = false
-position = Vector2(361, 485)
-
-[node name="Seed3" parent="." instance=ExtResource("3_k57fr")]
-visible = false
-position = Vector2(502, 253)
-
 [node name="Frog" parent="." instance=ExtResource("4_5l7vc")]
-position = Vector2(364, 285)
+position = Vector2(562, 367)
 wander_speed = 200.0
 
 [node name="Cricket" parent="." instance=ExtResource("2_ul88c")]
-position = Vector2(702, 414)
+position = Vector2(687, 423)
+
+[node name="SeedSpawner" type="Node" parent="."]
+script = ExtResource("4_cimsb")
+scene = ExtResource("3_k57fr")
+time_between_spawns_s = 0.2
+max_y = 1200.0
+max_x = 1900.0
