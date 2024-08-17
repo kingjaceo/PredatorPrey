@@ -33,34 +33,8 @@ visible = false
 position = Vector2(502, 253)
 
 [node name="Frog" parent="." instance=ExtResource("4_5l7vc")]
-position = Vector2(580, 333)
+position = Vector2(364, 285)
+wander_speed = 200.0
 
 [node name="Cricket" parent="." instance=ExtResource("2_ul88c")]
-position = Vector2(1036, 129)
-
-[node name="Cricket2" parent="." instance=ExtResource("2_ul88c")]
-position = Vector2(292, 227)
-
-[node name="Cricket3" parent="." instance=ExtResource("2_ul88c")]
-position = Vector2(176, 512)
-
-[node name="Cricket4" parent="." instance=ExtResource("2_ul88c")]
-position = Vector2(902, 542)
-
-[node name="Cricket5" parent="." instance=ExtResource("2_ul88c")]
-position = Vector2(539, 56)
-
-[node name="Cricket6" parent="." instance=ExtResource("2_ul88c")]
-position = Vector2(603, 571)
-
-[node name="Cricket7" parent="." instance=ExtResource("2_ul88c")]
-position = Vector2(346, 356)
-
-[node name="Cricket8" parent="." instance=ExtResource("2_ul88c")]
-position = Vector2(772, 221)
-
-[node name="Cricket9" parent="." instance=ExtResource("2_ul88c")]
-position = Vector2(803, 385)
-
-[node name="Cricket10" parent="." instance=ExtResource("2_ul88c")]
-position = Vector2(391, 524)
+position = Vector2(702, 414)

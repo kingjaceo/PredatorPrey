@@ -1,36 +1,39 @@
-class_name Chase
+class_name Flee
 extends Behavior
 
 var target: Area2D
 var target_position: Vector2
+var direction: Vector2
 var speed: float
 var time_since_last_dash_s: float = 0
 var dash_time_s: float = 0
-@export var chase_time_s: float = 0.5
+@export var flee_time_s: float = 1
+var fleeing: bool = false
 
 func execute(delta):
 	if not is_instance_valid(target):
-		priority = 0
 		return
 		
 	if target:
 		target_position = target.global_position
-		
-	var direction = (target_position - entity.position).normalized()
-	_check_update_speed(delta)
-	entity.position += direction * delta * speed
+		direction = -(target_position - entity.position).normalized()
+	#_check_update_speed(delta)
+	entity.position += direction * delta * entity.wander_speed
 
 
 func _on_trigger(trigger: Area2D):
-	priority = 10
+	priority = 20
+	fleeing = true
 	if not target:
 		target = trigger
 
 
 func _on_untrigger(trigger: Area2D):
 	target = null
-	await get_tree().create_timer(chase_time_s).timeout
-	priority = 0
+	fleeing = false
+	await get_tree().create_timer(flee_time_s).timeout
+	if not fleeing:
+		priority = 0
 
 
 func _check_update_speed(delta):

@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://6djvyq44gdsm"]
+
+[ext_resource type="Script" path="res://objects/AIController.gd" id="1_c5nfm"]
+[ext_resource type="Script" path="res://objects/wander.gd" id="2_sx3h7"]
+[ext_resource type="Script" path="res://objects/chase.gd" id="3_ymmdj"]
+[ext_resource type="Script" path="res://objects/eat.gd" id="4_shbri"]
+
+[node name="FrogController" type="Node"]
+script = ExtResource("1_c5nfm")
+
+[node name="Wander" type="Node" parent="."]
+script = ExtResource("2_sx3h7")
+
+[node name="Chase" type="Node" parent="."]
+script = ExtResource("3_ymmdj")
+
+[node name="Eat" type="Node" parent="."]
+script = ExtResource("4_shbri")
