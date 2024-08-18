@@ -6,11 +6,11 @@ extends Camera2D
 @export var min_zoom: Vector2 = Vector2(0.1, 0.1)
 var zoom_step = Vector2(0.05, 0.05)
 
-func _process(delta):
-	_check_change_position(delta)
+func _process(_delta):
+	_check_change_position()
 
 
-func _check_change_position(delta):
+func _check_change_position():
 	var direction = Vector2.ZERO
 	if Input.is_action_pressed("up"):
 		direction.y -= 1
@@ -25,9 +25,9 @@ func _check_change_position(delta):
 	var position_change = Vector2.ZERO
 
 	if Input.is_action_pressed("dash"):
-		position_change = direction * dash_speed * delta
+		position_change = direction * dash_speed
 	else:
-		position_change = direction * speed * delta
+		position_change = direction * speed
 	position += position_change
 
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtxtftrdwl5tb"
-path="res://.godot/imported/Seed sprite.png-1ff4b3c1b70037eb2ecef2f8454e56dc.ctex"
+uid="uid://bahmool2tnyfg"
+path="res://.godot/imported/Frog sprite.png-4aa49835984d700928d9fc3c8ffd3181.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Seed sprite.png"
-dest_files=["res://.godot/imported/Seed sprite.png-1ff4b3c1b70037eb2ecef2f8454e56dc.ctex"]
+source_file="res://entities/Frog sprite.png"
+dest_files=["res://.godot/imported/Frog sprite.png-4aa49835984d700928d9fc3c8ffd3181.ctex"]
 
 [params]
 

@@ -1,0 +1,61 @@
+[gd_scene load_steps=12 format=3 uid="uid://b7xmp3h05tndc"]
+
+[ext_resource type="Script" path="res://world/spawner.gd" id="1_k6jfh"]
+[ext_resource type="Script" path="res://world/time_controller.gd" id="1_ovh4i"]
+[ext_resource type="PackedScene" uid="uid://bsebbdh5hyqsm" path="res://objects/seed.tscn" id="2_lsoxb"]
+[ext_resource type="PackedScene" uid="uid://bxvkkdce3ffhv" path="res://entities/cricket.tscn" id="3_wgqgu"]
+[ext_resource type="PackedScene" uid="uid://4affcnfwqt23" path="res://entities/frog.tscn" id="4_wk4aw"]
+[ext_resource type="Texture2D" uid="uid://bt13rb4d1ufs6" path="res://objects/grass_tile.png" id="5_m2inl"]
+[ext_resource type="Script" path="res://world/game_background.gd" id="10_yfeb6"]
+[ext_resource type="Script" path="res://debug_controller.gd" id="11_whrw7"]
+[ext_resource type="PackedScene" uid="uid://b25pavk0b51r3" path="res://ui/stats_display.tscn" id="12_ynu4c"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_umiln"]
+texture = ExtResource("5_m2inl")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_sloau"]
+tile_size = Vector2i(256, 256)
+sources/0 = SubResource("TileSetAtlasSource_umiln")
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_ovh4i")
+
+[node name="Background" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_sloau")
+format = 2
+script = ExtResource("10_yfeb6")
+height = 10
+width = 20
+
+[node name="SeedSpawner" type="Node" parent="."]
+script = ExtResource("1_k6jfh")
+scene = ExtResource("2_lsoxb")
+time_between_spawns_s = 0.1
+max_y = 1200.0
+max_x = 1900.0
+initial_population = 1000
+
+[node name="CricketSpawner" type="Node" parent="."]
+script = ExtResource("1_k6jfh")
+scene = ExtResource("3_wgqgu")
+time_between_spawns_s = 1.0
+max_y = 1200.0
+max_x = 1900.0
+
+[node name="FrogSpawner" type="Node" parent="."]
+script = ExtResource("1_k6jfh")
+scene = ExtResource("4_wk4aw")
+time_between_spawns_s = 0.0
+max_y = 1200.0
+max_x = 1900.0
+initial_population = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+process_mode = 3
+script = ExtResource("11_whrw7")
+dash_speed = 60.0
+speed = 30.0
+
+[node name="StatsDisplay" parent="." instance=ExtResource("12_ynu4c")]

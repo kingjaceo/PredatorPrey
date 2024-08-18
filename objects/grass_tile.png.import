@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bahmool2tnyfg"
-path="res://.godot/imported/Frog sprite.png-e1f81b17c922310d60e707a8f2b3fd99.ctex"
+uid="uid://bt13rb4d1ufs6"
+path="res://.godot/imported/grass_tile.png-e2fb8bdc1cce7420519a347fc3012f6c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Frog sprite.png"
-dest_files=["res://.godot/imported/Frog sprite.png-e1f81b17c922310d60e707a8f2b3fd99.ctex"]
+source_file="res://objects/grass_tile.png"
+dest_files=["res://.godot/imported/grass_tile.png-e2fb8bdc1cce7420519a347fc3012f6c.ctex"]
 
 [params]
 

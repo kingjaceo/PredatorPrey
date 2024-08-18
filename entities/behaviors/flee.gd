@@ -18,8 +18,8 @@ func execute(delta):
 	if target:
 		target_position = target.global_position
 		direction = -(target_position - entity.position).normalized()
-	#_check_update_speed(delta)
-	entity.position += direction * delta * entity.wander_speed
+	_check_update_speed(delta)
+	entity.position += direction * delta * speed
 
 
 func _on_trigger(trigger: Area2D):

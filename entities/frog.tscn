@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://entities/behaviors/wander.gd" id="3_sttn0"]
 [ext_resource type="Script" path="res://entities/vision.gd" id="4_1myky"]
 [ext_resource type="Script" path="res://entities/behaviors/chase.gd" id="4_ykvdh"]
-[ext_resource type="Texture2D" uid="uid://bahmool2tnyfg" path="res://Frog sprite.png" id="5_xrt1t"]
+[ext_resource type="Texture2D" uid="uid://bahmool2tnyfg" path="res://entities/Frog sprite.png" id="5_xrt1t"]
 [ext_resource type="Script" path="res://entities/controllers/controller_debugger.gd" id="7_1kk2m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvhq"]
@@ -19,8 +19,8 @@ radius = 100.0
 
 [node name="Frog" type="Node2D" groups=["frog"]]
 script = ExtResource("1_tyo1j")
-dash_speed = 600.0
-dash_length_s = 0.6
+dash_length_s = 0.2
+dash_cooldown_s = 0.2
 vision_radius = 600.0
 food_amount = 10.0
 max_lifetime = 30.0

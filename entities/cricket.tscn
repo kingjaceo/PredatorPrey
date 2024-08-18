@@ -23,8 +23,10 @@ radius = 200.0
 
 [node name="Cricket" type="Node2D" groups=["cricket"]]
 script = ExtResource("1_4rcdh")
-wander_speed = 200.0
-dash_speed = 200.0
+wander_speed = 50.0
+dash_speed = 2000.0
+dash_length_s = 0.1
+dash_cooldown_s = 2.0
 vision_radius = 200.0
 food_amount = 2.5
 
