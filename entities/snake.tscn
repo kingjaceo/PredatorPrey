@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://brj0xrmvnulfl"]
+[gd_scene load_steps=15 format=3 uid="uid://brj0xrmvnulfl"]
 
 [ext_resource type="Script" path="res://entities/entity.gd" id="1_7fmso"]
 [ext_resource type="Script" path="res://entities/controllers/AIController.gd" id="2_3jiud"]
@@ -10,6 +10,7 @@
 [ext_resource type="Script" path="res://entities/vision.gd" id="6_a4dsu"]
 [ext_resource type="Script" path="res://entities/behaviors/eat.gd" id="7_s2w07"]
 [ext_resource type="Script" path="res://entities/controllers/controller_debugger.gd" id="7_tujkl"]
+[ext_resource type="Script" path="res://entities/behaviors/flee.gd" id="8_c2gw7"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvhq"]
 radius = 59.0762
@@ -36,6 +37,10 @@ script = ExtResource("4_53kue")
 
 [node name="Eat" type="Node" parent="Controller"]
 script = ExtResource("7_s2w07")
+
+[node name="Flee" type="Node" parent="Controller"]
+script = ExtResource("8_c2gw7")
+flee_time_s = 4.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.609375, 0.609375)
@@ -81,3 +86,5 @@ script = ExtResource("7_tujkl")
 [connection signal="area_entered" from="Body" to="." method="_eat"]
 [connection signal="closer_target_detected" from="FoodDetector" to="Controller/Chase" method="_on_trigger"]
 [connection signal="no_target_detected" from="FoodDetector" to="Controller/Chase" method="_on_untrigger"]
+[connection signal="closer_target_detected" from="ThreatDetector" to="Controller/Flee" method="_on_trigger"]
+[connection signal="no_target_detected" from="ThreatDetector" to="Controller/Flee" method="_on_untrigger"]

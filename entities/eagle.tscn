@@ -1,0 +1,82 @@
+[gd_scene load_steps=13 format=3 uid="uid://b6c8qgemuox7b"]
+
+[ext_resource type="Script" path="res://entities/entity.gd" id="1_0qotg"]
+[ext_resource type="Resource" uid="uid://bk042k7vmu213" path="res://entities/eagle_stats.tres" id="2_f6gyg"]
+[ext_resource type="Script" path="res://entities/controllers/AIController.gd" id="4_15yyg"]
+[ext_resource type="Script" path="res://entities/behaviors/wander.gd" id="5_ce27c"]
+[ext_resource type="Script" path="res://entities/behaviors/chase.gd" id="6_5puli"]
+[ext_resource type="Script" path="res://entities/behaviors/eat.gd" id="7_5lp6f"]
+[ext_resource type="Texture2D" uid="uid://c4hluuy7aj8jl" path="res://icon.svg" id="8_om1jn"]
+[ext_resource type="Script" path="res://entities/vision.gd" id="9_2601r"]
+[ext_resource type="Script" path="res://entities/controllers/controller_debugger.gd" id="10_wypy4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ihvhq"]
+radius = 11.6619
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ohftr"]
+radius = 100.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o7fjc"]
+radius = 100.0
+
+[node name="Eagle" type="Node2D"]
+script = ExtResource("1_0qotg")
+stats = ExtResource("2_f6gyg")
+sprite_texture = ExtResource("8_om1jn")
+
+[node name="Controller" type="Node" parent="."]
+script = ExtResource("4_15yyg")
+
+[node name="Wander" type="Node" parent="Controller"]
+script = ExtResource("5_ce27c")
+
+[node name="Chase" type="Node" parent="Controller"]
+script = ExtResource("6_5puli")
+
+[node name="Eat" type="Node" parent="Controller"]
+script = ExtResource("7_5lp6f")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.609375, 0.609375)
+texture = ExtResource("8_om1jn")
+
+[node name="Body" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
+shape = SubResource("CircleShape2D_ihvhq")
+
+[node name="FoodDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 12
+script = ExtResource("9_2601r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FoodDetector"]
+shape = SubResource("CircleShape2D_ohftr")
+
+[node name="ThreatDetector" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("9_2601r")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ThreatDetector"]
+shape = SubResource("CircleShape2D_o7fjc")
+
+[node name="Debugger" type="Label" parent="."]
+z_index = 2
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -40.0
+offset_top = 15.0
+offset_right = 40.0
+offset_bottom = 38.0
+grow_horizontal = 2
+text = "BEHAVIOR"
+horizontal_alignment = 1
+script = ExtResource("10_wypy4")
+
+[connection signal="area_entered" from="Body" to="." method="_eat"]
+[connection signal="closer_target_detected" from="FoodDetector" to="Controller/Chase" method="_on_trigger"]
+[connection signal="no_target_detected" from="FoodDetector" to="Controller/Chase" method="_on_untrigger"]

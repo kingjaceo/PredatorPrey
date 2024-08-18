@@ -39,6 +39,7 @@ script = ExtResource("7_2kc8h")
 
 [node name="Flee" type="Node" parent="Controller"]
 script = ExtResource("8_ppswi")
+flee_time_s = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.609375, 0.609375)
