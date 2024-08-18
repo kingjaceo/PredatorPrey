@@ -4,12 +4,12 @@
 
 [resource]
 script = ExtResource("1_cbwgv")
-wander_speed = 100.0
-dash_speed = 300.0
-dash_length_s = 1.0
-dash_cooldown_s = 5.0
-vision_radius = 100.0
-consumption = 0.5
-food_amount = 1.0
-baby_requirement = 10.0
+wander_speed = 50.0
+dash_speed = 3000.0
+dash_length_s = 0.1
+dash_cooldown_s = 2.0
+vision_radius = 150.0
+consumption = 0.1
+food_amount = 1.5
+baby_requirement = 6.0
 max_lifetime = 10.0

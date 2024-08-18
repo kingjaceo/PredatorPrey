@@ -76,7 +76,7 @@ shape = SubResource("CircleShape2D_uvic4")
 
 [node name="ThreatDetector" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 252
+collision_mask = 12
 script = ExtResource("10_dio75")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ThreatDetector"]
