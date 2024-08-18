@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=3 uid="uid://4affcnfwqt23"]
 
 [ext_resource type="Script" path="res://entities/entity.gd" id="1_tyo1j"]
-[ext_resource type="Resource" uid="uid://iey66n7dl5fk" path="res://entities/frog_stats.tres" id="2_ekmge"]
+[ext_resource type="Resource" uid="uid://l2iscswdrkxd" path="res://entities/frog_stats.tres" id="2_ekmge"]
 [ext_resource type="Script" path="res://entities/controllers/AIController.gd" id="2_xw8h1"]
 [ext_resource type="Script" path="res://entities/behaviors/wander.gd" id="3_sttn0"]
 [ext_resource type="Texture2D" uid="uid://bahmool2tnyfg" path="res://entities/frog_sprite.png" id="3_va4so"]
@@ -23,7 +23,6 @@ radius = 100.0
 [node name="Frog" type="Node2D" groups=["frog"]]
 script = ExtResource("1_tyo1j")
 stats = ExtResource("2_ekmge")
-sprite_texture = ExtResource("3_va4so")
 
 [node name="Controller" type="Node" parent="."]
 script = ExtResource("2_xw8h1")

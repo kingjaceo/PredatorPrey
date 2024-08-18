@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EntityData" load_steps=2 format=3 uid="uid://b46dhvt02qtop"]
+[gd_resource type="Resource" script_class="EntityData" load_steps=2 format=3 uid="uid://bmgjo3a627ta2"]
 
 [ext_resource type="Script" path="res://entities/entity_data.gd" id="1_0lhsr"]
 
@@ -13,3 +13,6 @@ consumption = 0.4
 food_amount = 1.0
 baby_requirement = 45.0
 max_lifetime = 40.0
+baby_scene_path = "res://entities/snake.tscn"
+prey_types = Array[int]([2, 3])
+predator_types = Array[int]([4])

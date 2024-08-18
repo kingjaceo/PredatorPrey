@@ -17,12 +17,6 @@ signal triggered
 signal objective_completed
 
 
-func accept():
-	accepted = true
-	if upfront_reward:
-		upfront_reward.receive()
-
-
 func activate():
 	trigger.activate()
 	trigger.triggered.connect(_on_trigger)

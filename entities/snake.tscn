@@ -1,9 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://brj0xrmvnulfl"]
+[gd_scene load_steps=13 format=3 uid="uid://brj0xrmvnulfl"]
 
 [ext_resource type="Script" path="res://entities/entity.gd" id="1_7fmso"]
 [ext_resource type="Script" path="res://entities/controllers/AIController.gd" id="2_3jiud"]
-[ext_resource type="Resource" uid="uid://b46dhvt02qtop" path="res://entities/snake_stats.tres" id="2_x143b"]
-[ext_resource type="Texture2D" uid="uid://eoaw3bwwuot0" path="res://snake_sprite.png" id="3_irsql"]
+[ext_resource type="Resource" uid="uid://bmgjo3a627ta2" path="res://entities/snake_stats.tres" id="2_x143b"]
 [ext_resource type="Script" path="res://entities/behaviors/wander.gd" id="3_ki6lm"]
 [ext_resource type="Script" path="res://entities/behaviors/chase.gd" id="4_53kue"]
 [ext_resource type="Texture2D" uid="uid://c4hluuy7aj8jl" path="res://icon.svg" id="5_pw2lb"]
@@ -23,7 +22,6 @@ radius = 100.0
 [node name="Snake" type="Node2D"]
 script = ExtResource("1_7fmso")
 stats = ExtResource("2_x143b")
-sprite_texture = ExtResource("3_irsql")
 
 [node name="Controller" type="Node" parent="."]
 script = ExtResource("2_3jiud")

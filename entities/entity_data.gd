@@ -10,3 +10,7 @@ extends Resource
 @export var food_amount: float = 1.0
 @export var baby_requirement: float = 10.0
 @export var max_lifetime: float = 10.0
+@export_file() var baby_scene_path: String
+@export var sprite_texture: Texture
+@export var prey_types: Array[int] = []
+@export var predator_types: Array[int] = []

@@ -6,7 +6,7 @@ extends Node
 
 func _ready():
 	if spawn_position == Vector2.ZERO:
-		spawn_position = Vector2(Global.level_width / 2, Global.level_height / 2)
+		spawn_position = Global.level_size / 2
 	if player_scene:
 		var player = player_scene.instantiate()
 		player.position = spawn_position

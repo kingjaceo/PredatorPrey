@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="EatFoodObjective" load_steps=8 format=3 uid="uid://ch732owgrmguu"]
+
+[ext_resource type="Script" path="res://objectives/eat_food_objective.gd" id="1_1sxgu"]
+[ext_resource type="Resource" uid="uid://l2iscswdrkxd" path="res://entities/frog_stats.tres" id="1_vowq3"]
+[ext_resource type="Resource" uid="uid://0blmbe6u7xq0" path="res://objectives/eat_crickets_objective.tres" id="2_i0lyc"]
+[ext_resource type="Script" path="res://objectives/change_creature_reward.gd" id="3_3o6e0"]
+[ext_resource type="Script" path="res://objectives/eat_food_trigger.gd" id="5_xdkdh"]
+
+[sub_resource type="Resource" id="Resource_8ge1m"]
+script = ExtResource("3_3o6e0")
+creature_data = ExtResource("1_vowq3")
+next_objective = ExtResource("2_i0lyc")
+
+[sub_resource type="Resource" id="Resource_mgtad"]
+script = ExtResource("5_xdkdh")
+target_amount = 5.0
+target_food_type = "seed"
+
+[resource]
+script = ExtResource("1_1sxgu")
+name = "Eat Seeds"
+description = "Eat enough seeds, and you can move on to being a frog!"
+objective_type = 0
+completion_reward = SubResource("Resource_8ge1m")
+trigger = SubResource("Resource_mgtad")
+accepted = true
+completed = false

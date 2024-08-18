@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="EntityData" load_steps=2 format=3 uid="uid://bps2aku44h7ev"]
+[gd_resource type="Resource" script_class="EntityData" load_steps=3 format=3 uid="uid://bps2aku44h7ev"]
 
 [ext_resource type="Script" path="res://entities/entity_data.gd" id="1_cbwgv"]
+[ext_resource type="Texture2D" uid="uid://bpqbhyb35a5sb" path="res://entities/cricket_sprite.png" id="2_de57l"]
 
 [resource]
 script = ExtResource("1_cbwgv")
@@ -13,3 +14,7 @@ consumption = 0.1
 food_amount = 1.5
 baby_requirement = 6.0
 max_lifetime = 10.0
+baby_scene_path = "res://entities/cricket.tscn"
+sprite_texture = ExtResource("2_de57l")
+prey_types = Array[int]([1])
+predator_types = Array[int]([3, 4])

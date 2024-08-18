@@ -6,6 +6,11 @@ extends Camera2D
 @export var min_zoom: Vector2 = Vector2(0.1, 0.1)
 var zoom_step = Vector2(0.05, 0.05)
 
+
+func _ready():
+	position = Global.level_size / 2
+
+
 func _process(_delta):
 	_check_change_position()
 

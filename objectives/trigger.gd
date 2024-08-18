@@ -4,6 +4,7 @@ extends Resource
 var progress: String:
 	get = _get_progress
 signal triggered
+signal progress_made
 
 
 func activate():

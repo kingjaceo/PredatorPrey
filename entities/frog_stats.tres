@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="EntityData" load_steps=2 format=3 uid="uid://iey66n7dl5fk"]
+[gd_resource type="Resource" script_class="EntityData" load_steps=3 format=3 uid="uid://l2iscswdrkxd"]
 
 [ext_resource type="Script" path="res://entities/entity_data.gd" id="1_hqtbf"]
+[ext_resource type="Texture2D" uid="uid://bahmool2tnyfg" path="res://entities/frog_sprite.png" id="2_hbbf2"]
 
 [resource]
 script = ExtResource("1_hqtbf")
@@ -13,3 +14,7 @@ consumption = 0.4
 food_amount = 10.0
 baby_requirement = 12.0
 max_lifetime = 25.0
+baby_scene_path = "res://entities/frog.tscn"
+sprite_texture = ExtResource("2_hbbf2")
+prey_types = Array[int]([2])
+predator_types = Array[int]([3, 4])

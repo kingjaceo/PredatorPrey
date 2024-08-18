@@ -13,14 +13,14 @@ func activate():
 	trigger.triggered.connect(_on_trigger)
 
 
-func complete():
+func _complete():
 	completion_reward.receive()
 	objective_completed.emit()
 
 
 func _on_trigger():
 	completed = true
-	triggered.emit()
+	_complete()
 
 
 func _get_progress():
