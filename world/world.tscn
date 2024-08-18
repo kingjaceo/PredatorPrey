@@ -26,30 +26,31 @@ script = ExtResource("1_ovh4i")
 tile_set = SubResource("TileSet_sloau")
 format = 2
 script = ExtResource("10_yfeb6")
-height = 10
-width = 20
+height = 8
+width = 12
 
 [node name="SeedSpawner" type="Node" parent="."]
 script = ExtResource("1_k6jfh")
 scene = ExtResource("2_lsoxb")
-time_between_spawns_s = 0.1
-max_y = 1200.0
-max_x = 1900.0
-initial_population = 1000
+time_between_spawns_s = 0.08
+max_y = 1900.0
+max_x = 2796.15
+initial_population = 200
 
 [node name="CricketSpawner" type="Node" parent="."]
 script = ExtResource("1_k6jfh")
 scene = ExtResource("3_wgqgu")
-time_between_spawns_s = 1.0
-max_y = 1200.0
-max_x = 1900.0
+time_between_spawns_s = -1.0
+max_y = 1900.0
+max_x = 2800.0
+initial_population = 50
 
 [node name="FrogSpawner" type="Node" parent="."]
 script = ExtResource("1_k6jfh")
 scene = ExtResource("4_wk4aw")
-time_between_spawns_s = 0.0
-max_y = 1200.0
-max_x = 1900.0
+time_between_spawns_s = 90.0
+max_y = 1800.0
+max_x = 2600.0
 initial_population = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
