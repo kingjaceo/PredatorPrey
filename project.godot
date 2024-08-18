@@ -24,6 +24,10 @@ Events="*res://autoloads/events.gd"
 
 window/size/mode=2
 
+[gui]
+
+theme/custom="res://common/main_theme.tres"
+
 [input]
 
 up={
