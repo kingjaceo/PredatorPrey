@@ -31,4 +31,4 @@ func _choose_new_destination():
 
 func _move_toward_destination(delta):
 	var direction = (destination - entity.position).normalized()
-	entity.position += direction * delta * entity.wander_speed
+	entity.position += direction * delta * entity.stats.wander_speed

@@ -38,14 +38,14 @@ func _on_untrigger():
 
 
 func _check_update_speed(delta):
-	if time_since_last_dash_s > entity.dash_cooldown_s:
-		speed = entity.dash_speed
+	if time_since_last_dash_s > entity.stats.dash_cooldown_s:
+		speed = entity.stats.dash_speed
 		dash_time_s = 0
 	
-	if dash_time_s < entity.dash_length_s:
-		speed = entity.dash_speed
+	if dash_time_s < entity.stats.dash_length_s:
+		speed = entity.stats.dash_speed
 		dash_time_s += delta
 		time_since_last_dash_s = 0
 	else:
-		speed = entity.wander_speed
+		speed = entity.stats.wander_speed
 		time_since_last_dash_s += delta

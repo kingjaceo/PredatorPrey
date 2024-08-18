@@ -1,7 +1,7 @@
 class_name Objective
 extends Resource
 
-enum ObjectiveType {ACHIEVEMENT, OBJECTIVE, CONTRACT}
+enum ObjectiveType {ACHIEVEMENT, OBJECTIVE}
 @export var name: String
 @export var description: String
 @export var objective_type: ObjectiveType

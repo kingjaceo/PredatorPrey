@@ -19,11 +19,6 @@ radius = 100.0
 
 [node name="Frog" type="Node2D" groups=["frog"]]
 script = ExtResource("1_tyo1j")
-dash_length_s = 0.2
-dash_cooldown_s = 0.2
-vision_radius = 600.0
-food_amount = 10.0
-max_lifetime = 30.0
 
 [node name="Controller" type="Node" parent="."]
 script = ExtResource("2_xw8h1")

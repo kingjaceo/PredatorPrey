@@ -8,6 +8,7 @@ var populations_by_type: Dictionary = {"cricket": 0, "frog": 0}
 var data: Dictionary = {"cricket": [], "frog": []}
 var current_time: float = 0
 var origin: Vector2
+var max_time: float
 var colors_by_type: Dictionary = {"cricket": Color.GREEN, "frog": Color.BLUE}
 @export_enum("SQUISH", "TRUNCATE") var mode: int
 
@@ -15,11 +16,15 @@ func _ready():
 	get_tree().node_added.connect(_on_node_added)
 	get_tree().node_removed.connect(_on_node_removed)
 	origin = Vector2(pad, size.y - pad)
+	max_time = size.x - 2 * pad
 	_regular_updates()
 
 
 func _process(delta):
 	current_time += delta
+	if current_time > max_time:
+		_update_data()
+		max_time = current_time
 	queue_redraw()
 
 
@@ -28,6 +33,18 @@ func _regular_updates():
 		await get_tree().create_timer(2.0).timeout
 		for type in populations_by_type:
 			data[type].append(Vector2(current_time, -populations_by_type[type]))
+
+
+func _update_data():
+	match mode:
+		0:
+			pass
+		1:
+			_truncate_data()
+
+
+func _truncate_data():
+	pass
 
 
 func _on_node_added(node):
