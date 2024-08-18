@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://b7xmp3h05tndc"]
+[gd_scene load_steps=16 format=3 uid="uid://b7xmp3h05tndc"]
 
 [ext_resource type="Texture2D" uid="uid://bt13rb4d1ufs6" path="res://objects/Grass tile.png" id="1_smrne"]
 [ext_resource type="PackedScene" uid="uid://bxvkkdce3ffhv" path="res://entities/cricket.tscn" id="2_ul88c"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://y81vrafddnuw" path="res://objects/left_boundary.tscn" id="9_w4qb7"]
 [ext_resource type="PackedScene" uid="uid://dnoydbxice0u8" path="res://objects/right_boundary.tscn" id="10_lnjlw"]
 [ext_resource type="PackedScene" uid="uid://j71ucboxin1s" path="res://entities/player.tscn" id="12_65i6c"]
+[ext_resource type="Script" path="res://viewport_clone.gd" id="13_8e1lq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_umiln"]
 texture = ExtResource("1_smrne")
@@ -62,3 +63,18 @@ width = 4
 
 [node name="Frog" parent="." instance=ExtResource("12_65i6c")]
 position = Vector2(378, 248)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -259.0
+offset_top = -244.0
+offset_bottom = 172.0
+grow_horizontal = 0
+grow_vertical = 2
+script = ExtResource("13_8e1lq")

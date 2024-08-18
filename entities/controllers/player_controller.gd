@@ -45,3 +45,7 @@ func _check_update_can_dash(delta):
 		dash_time = 0.0
 	if time_since_last_dash > entity.dash_cooldown_s:
 		can_dash = true
+
+
+func reset():
+	pass
