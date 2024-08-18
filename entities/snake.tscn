@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dfvg8d0vhh3rw"]
+[gd_scene load_steps=11 format=3 uid="uid://brj0xrmvnulfl"]
 
 [ext_resource type="Script" path="res://entities/entity.gd" id="1_7fmso"]
 [ext_resource type="Script" path="res://entities/controllers/AIController.gd" id="2_3jiud"]
@@ -17,13 +17,8 @@ radius = 100.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_o7fjc"]
 radius = 100.0
 
-[node name="Frog" type="Node2D"]
+[node name="Snake" type="Node2D"]
 script = ExtResource("1_7fmso")
-wander_speed = 600.0
-dash_speed = 600.0
-dash_length_s = 10.0
-vision_radius = 600.0
-food_amount = 10.0
 
 [node name="Controller" type="Node" parent="."]
 script = ExtResource("2_3jiud")
@@ -35,7 +30,6 @@ script = ExtResource("3_ki6lm")
 script = ExtResource("4_53kue")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 0.290196, 0.231373, 1)
 scale = Vector2(0.609375, 0.609375)
 texture = ExtResource("5_pw2lb")
 

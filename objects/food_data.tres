@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="FoodData" load_steps=2 format=3 uid="uid://dqsibw6268wvt"]
+
+[ext_resource type="Script" path="res://objects/food_data.gd" id="1_guxew"]
+
+[resource]
+script = ExtResource("1_guxew")
+food_amount = 1.0

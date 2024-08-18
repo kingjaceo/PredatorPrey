@@ -29,21 +29,21 @@ func _process(delta):
 	time_since_last_dash += delta
 	_check_update_can_dash(delta)
 	if Input.is_action_pressed("dash") and can_dash:
-		position_change = direction * entity.dash_speed * delta
+		position_change = direction * entity.stats.dash_speed * delta
 		dash_time += delta
 		time_since_last_dash = 0
 	else:
-		position_change = direction * entity.wander_speed * delta
+		position_change = direction * entity.stats.wander_speed * delta
 	
 	entity.position += position_change
 
 
 func _check_update_can_dash(delta):
 	# this gets called every frame
-	if dash_time > entity.dash_length_s:
+	if dash_time > entity.stats.dash_length_s:
 		can_dash = false
 		dash_time = 0.0
-	if time_since_last_dash > entity.dash_cooldown_s:
+	if time_since_last_dash > entity.stats.dash_cooldown_s:
 		can_dash = true
 
 

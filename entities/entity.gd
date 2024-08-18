@@ -2,11 +2,15 @@ class_name Entity
 extends Node2D
 
 @export var stats: EntityData
+@export var sprite_texture: Texture
+@onready var sprite = $Sprite2D
+
 var lifetime: float
 var baby_progress: float = 0.0
 
 func _ready():
 	lifetime = stats.max_lifetime
+	sprite.texture = sprite_texture
 
 
 func _process(delta):
@@ -21,8 +25,8 @@ func _process(delta):
 
 func _eat(trigger: Area2D):
 	var food = trigger.get_parent()
-	baby_progress += food.food_amount
-	lifetime += food.food_amount
+	baby_progress += food.stats.food_amount
+	lifetime += food.stats.food_amount
 	food.queue_free()
 
 

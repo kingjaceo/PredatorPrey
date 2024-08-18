@@ -1,6 +1,8 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://twbyj3fev8td"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://twbyj3fev8td"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1wtta"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4ss3p"]
 
 [resource]
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
@@ -15,3 +17,4 @@ MarginContainer/constants/margin_bottom = 8
 MarginContainer/constants/margin_left = 8
 MarginContainer/constants/margin_right = 8
 MarginContainer/constants/margin_top = 8
+Panel/styles/panel = SubResource("StyleBoxFlat_4ss3p")

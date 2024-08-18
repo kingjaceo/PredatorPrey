@@ -1,7 +1,7 @@
 class_name Seed
 extends Node2D
 
-@export var food_amount: float = 1.0
+@export var stats: FoodData
 @export var seed_sprite = load("res://objects/seed_sprite.png")
 @export var berry_sprite = load("res://objects/berry.png")
 @onready var sprite = $Sprite2D

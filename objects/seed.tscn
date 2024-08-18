@@ -1,12 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://bsebbdh5hyqsm"]
+[gd_scene load_steps=5 format=3 uid="uid://bsebbdh5hyqsm"]
 
 [ext_resource type="Script" path="res://objects/seed.gd" id="1_mxt83"]
+[ext_resource type="Resource" uid="uid://dqsibw6268wvt" path="res://objects/food_data.tres" id="2_n72a6"]
 [ext_resource type="Texture2D" uid="uid://dtxtftrdwl5tb" path="res://objects/seed_sprite.png" id="2_ttrqe"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7x32b"]
 
 [node name="Seed" type="Node2D"]
 script = ExtResource("1_mxt83")
+stats = ExtResource("2_n72a6")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.132813, 0.132813)

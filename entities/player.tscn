@@ -1,28 +1,22 @@
-[gd_scene load_steps=8 format=3 uid="uid://j71ucboxin1s"]
+[gd_scene load_steps=6 format=3 uid="uid://j71ucboxin1s"]
 
 [ext_resource type="Script" path="res://entities/entity.gd" id="1_dldxg"]
 [ext_resource type="PackedScene" uid="uid://d15l7647iimo5" path="res://entities/controllers/player_controller.tscn" id="2_n781n"]
-[ext_resource type="Texture2D" uid="uid://c4hluuy7aj8jl" path="res://icon.svg" id="5_wqcn0"]
-[ext_resource type="Script" path="res://entities/vision.gd" id="6_ch3ml"]
+[ext_resource type="Resource" uid="uid://bps2aku44h7ev" path="res://entities/cricket_stats.tres" id="2_tmbbd"]
+[ext_resource type="Texture2D" uid="uid://b8a4imw1c5fgx" path="res://snake_sprite.png" id="3_y7dm6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvhq"]
 radius = 59.0762
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ohftr"]
-radius = 100.0
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_o7fjc"]
-radius = 100.0
-
-[node name="Frog" type="Node2D"]
+[node name="Player" type="Node2D"]
 script = ExtResource("1_dldxg")
+stats = ExtResource("2_tmbbd")
+sprite_texture = ExtResource("3_y7dm6")
 
 [node name="PlayerController" parent="." instance=ExtResource("2_n781n")]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 0.290196, 0.231373, 1)
 scale = Vector2(0.609375, 0.609375)
-texture = ExtResource("5_wqcn0")
 
 [node name="Body" type="Area2D" parent="."]
 collision_layer = 4
@@ -31,20 +25,6 @@ collision_mask = 2
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
 shape = SubResource("CircleShape2D_ihvhq")
 
-[node name="FoodDetector" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("6_ch3ml")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FoodDetector"]
-shape = SubResource("CircleShape2D_ohftr")
-
-[node name="ThreatDetector" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 0
-script = ExtResource("6_ch3ml")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ThreatDetector"]
-shape = SubResource("CircleShape2D_o7fjc")
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="area_entered" from="Body" to="." method="_eat"]

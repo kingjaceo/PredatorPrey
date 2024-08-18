@@ -1,11 +1,12 @@
-[gd_scene load_steps=11 format=3 uid="uid://4affcnfwqt23"]
+[gd_scene load_steps=12 format=3 uid="uid://4affcnfwqt23"]
 
 [ext_resource type="Script" path="res://entities/entity.gd" id="1_tyo1j"]
+[ext_resource type="Resource" uid="uid://l2iscswdrkxd" path="res://entities/frog_stats.tres" id="2_ekmge"]
 [ext_resource type="Script" path="res://entities/controllers/AIController.gd" id="2_xw8h1"]
 [ext_resource type="Script" path="res://entities/behaviors/wander.gd" id="3_sttn0"]
+[ext_resource type="Texture2D" uid="uid://bahmool2tnyfg" path="res://entities/frog_sprite.png" id="3_va4so"]
 [ext_resource type="Script" path="res://entities/vision.gd" id="4_1myky"]
 [ext_resource type="Script" path="res://entities/behaviors/chase.gd" id="4_ykvdh"]
-[ext_resource type="Texture2D" uid="uid://bahmool2tnyfg" path="res://entities/Frog sprite.png" id="5_xrt1t"]
 [ext_resource type="Script" path="res://entities/controllers/controller_debugger.gd" id="7_1kk2m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvhq"]
@@ -19,6 +20,8 @@ radius = 100.0
 
 [node name="Frog" type="Node2D" groups=["frog"]]
 script = ExtResource("1_tyo1j")
+stats = ExtResource("2_ekmge")
+sprite_texture = ExtResource("3_va4so")
 
 [node name="Controller" type="Node" parent="."]
 script = ExtResource("2_xw8h1")
@@ -31,7 +34,7 @@ script = ExtResource("4_ykvdh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.609375, 0.609375)
-texture = ExtResource("5_xrt1t")
+texture = ExtResource("3_va4so")
 
 [node name="Body" type="Area2D" parent="."]
 collision_layer = 4

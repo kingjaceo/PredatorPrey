@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bahmool2tnyfg"
-path="res://.godot/imported/Frog sprite.png-4aa49835984d700928d9fc3c8ffd3181.ctex"
+uid="uid://b8a4imw1c5fgx"
+path="res://.godot/imported/snake_sprite.png-bac824f2ddbea347ec2fa5893670a1f2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://entities/Frog sprite.png"
-dest_files=["res://.godot/imported/Frog sprite.png-4aa49835984d700928d9fc3c8ffd3181.ctex"]
+source_file="res://snake_sprite.png"
+dest_files=["res://.godot/imported/snake_sprite.png-bac824f2ddbea347ec2fa5893670a1f2.ctex"]
 
 [params]
 

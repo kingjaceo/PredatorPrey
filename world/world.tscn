@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b7xmp3h05tndc"]
+[gd_scene load_steps=13 format=3 uid="uid://b7xmp3h05tndc"]
 
 [ext_resource type="Script" path="res://world/spawner.gd" id="1_k6jfh"]
 [ext_resource type="Script" path="res://world/time_controller.gd" id="1_ovh4i"]
@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://bxvkkdce3ffhv" path="res://entities/cricket.tscn" id="3_wgqgu"]
 [ext_resource type="PackedScene" uid="uid://4affcnfwqt23" path="res://entities/frog.tscn" id="4_wk4aw"]
 [ext_resource type="Texture2D" uid="uid://bt13rb4d1ufs6" path="res://objects/grass_tile.png" id="5_m2inl"]
+[ext_resource type="Script" path="res://world/player_spawner.gd" id="8_f5ygd"]
+[ext_resource type="PackedScene" uid="uid://j71ucboxin1s" path="res://entities/player.tscn" id="9_4sukx"]
 [ext_resource type="Script" path="res://world/game_background.gd" id="10_yfeb6"]
-[ext_resource type="Script" path="res://debug_controller.gd" id="11_whrw7"]
 [ext_resource type="PackedScene" uid="uid://b25pavk0b51r3" path="res://ui/stats_display.tscn" id="12_ynu4c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_umiln"]
@@ -53,10 +54,8 @@ max_y = 1800.0
 max_x = 2600.0
 initial_population = 1
 
-[node name="Camera2D" type="Camera2D" parent="."]
-process_mode = 3
-script = ExtResource("11_whrw7")
-dash_speed = 60.0
-speed = 30.0
+[node name="PlayerSpawner" type="Node" parent="."]
+script = ExtResource("8_f5ygd")
+player_scene = ExtResource("9_4sukx")
 
 [node name="StatsDisplay" parent="." instance=ExtResource("12_ynu4c")]
