@@ -1,7 +1,7 @@
 extends Camera2D
 
-@export var dash_speed: float = 600
-@export var speed: float = 300
+@export var dash_speed: float = 60
+@export var speed: float = 30
 @export var max_zoom: Vector2 = Vector2(4, 4)
 @export var min_zoom: Vector2 = Vector2(0.1, 0.1)
 var zoom_step = Vector2(0.05, 0.05)

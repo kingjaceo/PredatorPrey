@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EntityData" load_steps=2 format=3 uid="uid://b46dhvt02qtop"]
+
+[ext_resource type="Script" path="res://entities/entity_data.gd" id="1_0lhsr"]
+
+[resource]
+script = ExtResource("1_0lhsr")
+wander_speed = 150.0
+dash_speed = 400.0
+dash_length_s = 3.0
+dash_cooldown_s = 4.0
+vision_radius = 250.0
+consumption = 0.4
+food_amount = 1.0
+baby_requirement = 45.0
+max_lifetime = 40.0

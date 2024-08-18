@@ -1,13 +1,15 @@
-[gd_scene load_steps=12 format=3 uid="uid://4affcnfwqt23"]
+[gd_scene load_steps=14 format=3 uid="uid://4affcnfwqt23"]
 
 [ext_resource type="Script" path="res://entities/entity.gd" id="1_tyo1j"]
-[ext_resource type="Resource" uid="uid://l2iscswdrkxd" path="res://entities/frog_stats.tres" id="2_ekmge"]
+[ext_resource type="Resource" uid="uid://iey66n7dl5fk" path="res://entities/frog_stats.tres" id="2_ekmge"]
 [ext_resource type="Script" path="res://entities/controllers/AIController.gd" id="2_xw8h1"]
 [ext_resource type="Script" path="res://entities/behaviors/wander.gd" id="3_sttn0"]
 [ext_resource type="Texture2D" uid="uid://bahmool2tnyfg" path="res://entities/frog_sprite.png" id="3_va4so"]
 [ext_resource type="Script" path="res://entities/vision.gd" id="4_1myky"]
 [ext_resource type="Script" path="res://entities/behaviors/chase.gd" id="4_ykvdh"]
 [ext_resource type="Script" path="res://entities/controllers/controller_debugger.gd" id="7_1kk2m"]
+[ext_resource type="Script" path="res://entities/behaviors/eat.gd" id="7_2kc8h"]
+[ext_resource type="Script" path="res://entities/behaviors/flee.gd" id="8_ppswi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvhq"]
 radius = 59.0762
@@ -32,6 +34,12 @@ script = ExtResource("3_sttn0")
 [node name="Chase" type="Node" parent="Controller"]
 script = ExtResource("4_ykvdh")
 
+[node name="Eat" type="Node" parent="Controller"]
+script = ExtResource("7_2kc8h")
+
+[node name="Flee" type="Node" parent="Controller"]
+script = ExtResource("8_ppswi")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.609375, 0.609375)
 texture = ExtResource("3_va4so")
@@ -53,7 +61,7 @@ shape = SubResource("CircleShape2D_ohftr")
 
 [node name="ThreatDetector" type="Area2D" parent="."]
 collision_layer = 0
-collision_mask = 0
+collision_mask = 24
 script = ExtResource("4_1myky")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ThreatDetector"]
@@ -77,3 +85,5 @@ script = ExtResource("7_1kk2m")
 [connection signal="area_entered" from="Body" to="." method="_eat"]
 [connection signal="closer_target_detected" from="FoodDetector" to="Controller/Chase" method="_on_trigger"]
 [connection signal="no_target_detected" from="FoodDetector" to="Controller/Chase" method="_on_untrigger"]
+[connection signal="closer_target_detected" from="ThreatDetector" to="Controller/Flee" method="_on_trigger"]
+[connection signal="no_target_detected" from="ThreatDetector" to="Controller/Flee" method="_on_untrigger"]

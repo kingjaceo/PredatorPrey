@@ -2,15 +2,15 @@
 
 [ext_resource type="Script" path="res://entities/entity.gd" id="1_dldxg"]
 [ext_resource type="PackedScene" uid="uid://d15l7647iimo5" path="res://entities/controllers/player_controller.tscn" id="2_n781n"]
-[ext_resource type="Resource" uid="uid://bps2aku44h7ev" path="res://entities/cricket_stats.tres" id="2_tmbbd"]
-[ext_resource type="Texture2D" uid="uid://b8a4imw1c5fgx" path="res://snake_sprite.png" id="3_y7dm6"]
+[ext_resource type="Resource" uid="uid://b46dhvt02qtop" path="res://entities/snake_stats.tres" id="2_wprve"]
+[ext_resource type="Texture2D" uid="uid://eoaw3bwwuot0" path="res://snake_sprite.png" id="3_y7dm6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvhq"]
 radius = 59.0762
 
 [node name="Player" type="Node2D"]
 script = ExtResource("1_dldxg")
-stats = ExtResource("2_tmbbd")
+stats = ExtResource("2_wprve")
 sprite_texture = ExtResource("3_y7dm6")
 
 [node name="PlayerController" parent="." instance=ExtResource("2_n781n")]
@@ -19,8 +19,8 @@ sprite_texture = ExtResource("3_y7dm6")
 scale = Vector2(0.609375, 0.609375)
 
 [node name="Body" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 2
+collision_layer = 8
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
 shape = SubResource("CircleShape2D_ihvhq")
