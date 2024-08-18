@@ -35,7 +35,7 @@ width = 15
 [node name="SeedSpawner" type="Node" parent="."]
 script = ExtResource("1_k6jfh")
 scene = ExtResource("2_lsoxb")
-time_between_spawns_s = 0.04
+time_between_spawns_s = 0.02
 max_y = 3000.0
 max_x = 4000.0
 initial_population = 400
@@ -43,10 +43,9 @@ initial_population = 400
 [node name="CricketSpawner" type="Node" parent="."]
 script = ExtResource("1_k6jfh")
 scene = ExtResource("3_wgqgu")
-time_between_spawns_s = -1.0
-max_y = 1900.0
-max_x = 2800.0
-initial_population = 50
+max_y = 2000.0
+max_x = 3000.0
+initial_population = 80
 
 [node name="FrogSpawner" type="Node" parent="."]
 script = ExtResource("1_k6jfh")

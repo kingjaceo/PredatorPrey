@@ -5,11 +5,11 @@
 [resource]
 script = ExtResource("1_hqtbf")
 wander_speed = 100.0
-dash_speed = 550.0
+dash_speed = 600.0
 dash_length_s = 0.2
-dash_cooldown_s = 0.5
+dash_cooldown_s = 0.6
 vision_radius = 250.0
 consumption = 0.4
-food_amount = 10.0
+food_amount = 9.0
 baby_requirement = 8.0
 max_lifetime = 25.0
