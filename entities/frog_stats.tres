@@ -6,13 +6,13 @@
 [resource]
 script = ExtResource("1_hqtbf")
 wander_speed = 100.0
-dash_speed = 500.0
+dash_speed = 600.0
 dash_length_s = 0.2
-dash_cooldown_s = 0.5
-vision_radius = 300.0
+dash_cooldown_s = 0.6
+vision_radius = 250.0
 consumption = 0.4
-food_amount = 10.0
-baby_requirement = 12.0
+food_amount = 9.0
+baby_requirement = 8.0
 max_lifetime = 25.0
 baby_scene_path = "res://entities/frog.tscn"
 sprite_texture = ExtResource("2_hbbf2")

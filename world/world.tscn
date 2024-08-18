@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://b7xmp3h05tndc"]
+[gd_scene load_steps=15 format=3 uid="uid://b7xmp3h05tndc"]
 
 [ext_resource type="Script" path="res://world/spawner.gd" id="1_k6jfh"]
 [ext_resource type="Script" path="res://world/time_controller.gd" id="1_ovh4i"]
@@ -8,7 +8,11 @@
 [ext_resource type="Texture2D" uid="uid://bt13rb4d1ufs6" path="res://objects/grass_tile.png" id="5_m2inl"]
 [ext_resource type="PackedScene" uid="uid://brj0xrmvnulfl" path="res://entities/snake.tscn" id="8_3v5e3"]
 [ext_resource type="Script" path="res://world/player_spawner.gd" id="8_f5ygd"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://j71ucboxin1s" path="res://entities/player.tscn" id="10_p7g32"]
+=======
+[ext_resource type="PackedScene" uid="uid://b6c8qgemuox7b" path="res://entities/eagle.tscn" id="9_hlsaq"]
+>>>>>>> 5966b9640a92c09c23c82371949663693621dd17
 [ext_resource type="Script" path="res://world/game_background.gd" id="10_yfeb6"]
 [ext_resource type="PackedScene" uid="uid://b25pavk0b51r3" path="res://ui/stats_display.tscn" id="12_ynu4c"]
 
@@ -50,14 +54,22 @@ initial_population = 5
 [node name="FrogSpawner" type="Node" parent="."]
 script = ExtResource("1_k6jfh")
 scene = ExtResource("4_wk4aw")
-time_between_spawns_s = 90.0
+time_between_spawns_s = 60.0
 max_y = 1800.0
 max_x = 2600.0
 
 [node name="SnakeSpawner" type="Node" parent="."]
 script = ExtResource("1_k6jfh")
 scene = ExtResource("8_3v5e3")
-time_between_spawns_s = -1.0
+time_between_spawns_s = 90.0
+max_y = 2000.0
+max_x = 3000.0
+initial_population = 3
+
+[node name="EagleSpawner" type="Node" parent="."]
+script = ExtResource("1_k6jfh")
+scene = ExtResource("9_hlsaq")
+time_between_spawns_s = 120.0
 max_y = 1800.0
 max_x = 2600.0
 

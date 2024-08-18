@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://pnnt25ywmvci"
-path="res://.godot/imported/button_asset.png-ca7ec34c9379343063b9e6c4dc2eb0a7.ctex"
+uid="uid://k5tktjeecli5"
+path="res://.godot/imported/eagle_sprite.png-9082d78f156f07c25af3dbd67c79a4df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://button_asset.png"
-dest_files=["res://.godot/imported/button_asset.png-ca7ec34c9379343063b9e6c4dc2eb0a7.ctex"]
+source_file="res://eagle_sprite.png"
+dest_files=["res://.godot/imported/eagle_sprite.png-9082d78f156f07c25af3dbd67c79a4df.ctex"]
 
 [params]
 
