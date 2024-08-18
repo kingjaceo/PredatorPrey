@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="GameData" load_steps=2 format=3 uid="uid://cc2vferp1cyop"]
+
+[ext_resource type="Script" path="res://common/game_data.gd" id="1_j1pce"]
+
+[resource]
+script = ExtResource("1_j1pce")
+money = 10000
+tutorial_active = true
+contract_capacity = 1

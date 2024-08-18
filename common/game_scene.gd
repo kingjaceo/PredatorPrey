@@ -11,11 +11,11 @@ signal reloaded
 func _ready():
 	if transition_scene_path:
 		transition_scene = load(transition_scene_path)
-	#game_data = Global.game_data
+	game_data = Global.game_data
 
 
 func _transition():
-	#Global.transition_to(transition_scene)
+	Global.transition_to(transition_scene)
 	pass
 
 func _exit():

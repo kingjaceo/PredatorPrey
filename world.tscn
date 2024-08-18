@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b7xmp3h05tndc"]
+[gd_scene load_steps=16 format=3 uid="uid://b7xmp3h05tndc"]
 
 [ext_resource type="Texture2D" uid="uid://bt13rb4d1ufs6" path="res://objects/Grass tile.png" id="1_smrne"]
 [ext_resource type="PackedScene" uid="uid://bxvkkdce3ffhv" path="res://entities/cricket.tscn" id="2_ul88c"]
@@ -6,21 +6,30 @@
 [ext_resource type="PackedScene" uid="uid://4affcnfwqt23" path="res://entities/frog.tscn" id="4_5l7vc"]
 [ext_resource type="Script" path="res://spawner.gd" id="4_cimsb"]
 [ext_resource type="Script" path="res://debug_controller.gd" id="6_4hqwx"]
+[ext_resource type="Script" path="res://game_background.gd" id="6_34qxq"]
+[ext_resource type="PackedScene" uid="uid://cm8nmsnwolpgl" path="res://objects/top_boundary.tscn" id="7_opkhu"]
+[ext_resource type="PackedScene" uid="uid://kq53w8e45jf1" path="res://objects/bottom_boundary.tscn" id="8_imi4i"]
+[ext_resource type="PackedScene" uid="uid://y81vrafddnuw" path="res://objects/left_boundary.tscn" id="9_w4qb7"]
+[ext_resource type="PackedScene" uid="uid://dnoydbxice0u8" path="res://objects/right_boundary.tscn" id="10_lnjlw"]
+[ext_resource type="PackedScene" uid="uid://j71ucboxin1s" path="res://entities/player.tscn" id="12_65i6c"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_umiln"]
+texture = ExtResource("1_smrne")
+texture_region_size = Vector2i(256, 256)
+0:0/0 = 0
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_pyprs"]
+scenes/1/scene = ExtResource("7_opkhu")
+scenes/2/scene = ExtResource("8_imi4i")
+scenes/3/scene = ExtResource("9_w4qb7")
+scenes/4/scene = ExtResource("10_lnjlw")
+
+[sub_resource type="TileSet" id="TileSet_sloau"]
+tile_size = Vector2i(256, 256)
+sources/0 = SubResource("TileSetAtlasSource_umiln")
+sources/1 = SubResource("TileSetScenesCollectionSource_pyprs")
 
 [node name="World" type="Node2D"]
-
-[node name="Background" type="CanvasLayer" parent="."]
-layer = -1
-follow_viewport_enabled = true
-
-[node name="TextureRect" type="TextureRect" parent="Background"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("1_smrne")
-stretch_mode = 1
 
 [node name="SeedSpawner" type="Node" parent="."]
 script = ExtResource("4_cimsb")
@@ -36,7 +45,6 @@ scene = ExtResource("2_ul88c")
 time_between_spawns_s = 0.0
 max_y = 1200.0
 max_x = 1900.0
-initial_population = 10
 
 [node name="FrogSpawner" type="Node" parent="."]
 script = ExtResource("4_cimsb")
@@ -49,3 +57,13 @@ initial_population = 1
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(575, 318)
 script = ExtResource("6_4hqwx")
+
+[node name="Background" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_sloau")
+format = 2
+script = ExtResource("6_34qxq")
+height = 4
+width = 4
+
+[node name="Frog" parent="." instance=ExtResource("12_65i6c")]
+position = Vector2(378, 248)

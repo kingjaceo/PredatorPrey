@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://kq53w8e45jf1"]
+
+[ext_resource type="Script" path="res://world_boundary.gd" id="1_djsvp"]
+[ext_resource type="Texture2D" uid="uid://bt13rb4d1ufs6" path="res://objects/Grass tile.png" id="2_ore04"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c5nuj"]
+size = Vector2(256, 128)
+
+[node name="WorldBoundary" type="Node2D"]
+script = ExtResource("1_djsvp")
+boundary_type = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ore04")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_c5nuj")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_entered"]

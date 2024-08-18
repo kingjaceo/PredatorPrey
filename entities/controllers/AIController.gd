@@ -5,7 +5,7 @@ var current_behavior: Behavior
 
 
 func _ready():
-	current_behavior = get_child(0) # default behavior
+	_find_new_behavior()
 
 
 func _process(delta):
@@ -23,4 +23,18 @@ func _check_update_current_behavior():
 		current_behavior.end()
 		current_behavior = new_behavior
 		current_behavior.start()
-		
+
+
+func _find_new_behavior():
+	current_behavior = get_child(0)
+	for child in get_children():
+		if child.priority > current_behavior.priority:
+			current_behavior = child
+	current_behavior.start()
+
+
+func reset():
+	if current_behavior:
+		current_behavior.end()
+		current_behavior = null
+	_find_new_behavior()
