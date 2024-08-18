@@ -21,7 +21,7 @@ radius = 200.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_66fwy"]
 radius = 200.0
 
-[node name="Cricket" type="Node2D"]
+[node name="Cricket" type="Node2D" groups=["cricket"]]
 script = ExtResource("1_4rcdh")
 wander_speed = 200.0
 dash_speed = 200.0
@@ -35,12 +35,15 @@ script = ExtResource("2_be7gl")
 script = ExtResource("3_iqfq2")
 
 [node name="Debugger" type="Node2D" parent="Controller/Wander"]
+visible = false
 script = ExtResource("4_4m1xe")
 
 [node name="Flee" type="Node" parent="Controller"]
 script = ExtResource("5_2mv76")
+flee_time_s = 3.0
 
 [node name="Debugger" type="Node2D" parent="Controller/Flee"]
+visible = false
 script = ExtResource("6_h430b")
 
 [node name="Chase" type="Node" parent="Controller"]
@@ -48,6 +51,7 @@ script = ExtResource("7_p5pyf")
 chase_time_s = 10.0
 
 [node name="Debugger" type="Node2D" parent="Controller/Chase"]
+visible = false
 script = ExtResource("4_4m1xe")
 
 [node name="Eat" type="Node" parent="Controller"]
@@ -80,6 +84,7 @@ script = ExtResource("10_dio75")
 shape = SubResource("CircleShape2D_66fwy")
 
 [node name="Debugger" type="Label" parent="."]
+visible = false
 z_index = 2
 anchors_preset = 5
 anchor_left = 0.5

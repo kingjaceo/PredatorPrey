@@ -23,6 +23,7 @@ func _ready():
 
 
 func _process(delta):
+	lifetime -= consumption * delta
 	if baby_progress > baby_requirement:
 		_spawn_baby()
 	if lifetime <= 0:

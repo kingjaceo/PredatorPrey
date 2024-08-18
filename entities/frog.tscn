@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" path="res://entities/entity.gd" id="1_tyo1j"]
 [ext_resource type="Script" path="res://entities/controllers/AIController.gd" id="2_xw8h1"]
-[ext_resource type="Texture2D" uid="uid://c4hluuy7aj8jl" path="res://icon.svg" id="3_js041"]
 [ext_resource type="Script" path="res://entities/behaviors/wander.gd" id="3_sttn0"]
 [ext_resource type="Script" path="res://entities/vision.gd" id="4_1myky"]
 [ext_resource type="Script" path="res://entities/behaviors/chase.gd" id="4_ykvdh"]
+[ext_resource type="Texture2D" uid="uid://bahmool2tnyfg" path="res://Frog sprite.png" id="5_xrt1t"]
 [ext_resource type="Script" path="res://entities/controllers/controller_debugger.gd" id="7_1kk2m"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvhq"]
@@ -17,13 +17,13 @@ radius = 100.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_o7fjc"]
 radius = 100.0
 
-[node name="Frog" type="Node2D"]
+[node name="Frog" type="Node2D" groups=["frog"]]
 script = ExtResource("1_tyo1j")
-wander_speed = 600.0
 dash_speed = 600.0
-dash_length_s = 10.0
+dash_length_s = 0.6
 vision_radius = 600.0
 food_amount = 10.0
+max_lifetime = 30.0
 
 [node name="Controller" type="Node" parent="."]
 script = ExtResource("2_xw8h1")
@@ -35,9 +35,8 @@ script = ExtResource("3_sttn0")
 script = ExtResource("4_ykvdh")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0, 0.290196, 0.231373, 1)
 scale = Vector2(0.609375, 0.609375)
-texture = ExtResource("3_js041")
+texture = ExtResource("5_xrt1t")
 
 [node name="Body" type="Area2D" parent="."]
 collision_layer = 4
@@ -63,6 +62,7 @@ script = ExtResource("4_1myky")
 shape = SubResource("CircleShape2D_o7fjc")
 
 [node name="Debugger" type="Label" parent="."]
+visible = false
 z_index = 2
 anchors_preset = 5
 anchor_left = 0.5

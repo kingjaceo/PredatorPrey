@@ -1,11 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://b7xmp3h05tndc"]
+[gd_scene load_steps=15 format=3 uid="uid://b7xmp3h05tndc"]
 
 [ext_resource type="Texture2D" uid="uid://bt13rb4d1ufs6" path="res://objects/Grass tile.png" id="1_smrne"]
 [ext_resource type="PackedScene" uid="uid://bxvkkdce3ffhv" path="res://entities/cricket.tscn" id="2_ul88c"]
 [ext_resource type="PackedScene" uid="uid://bsebbdh5hyqsm" path="res://objects/seed.tscn" id="3_k57fr"]
 [ext_resource type="PackedScene" uid="uid://4affcnfwqt23" path="res://entities/frog.tscn" id="4_5l7vc"]
 [ext_resource type="Script" path="res://spawner.gd" id="4_cimsb"]
-[ext_resource type="Script" path="res://debug_controller.gd" id="6_4hqwx"]
 [ext_resource type="Script" path="res://game_background.gd" id="6_34qxq"]
 [ext_resource type="PackedScene" uid="uid://cm8nmsnwolpgl" path="res://objects/top_boundary.tscn" id="7_opkhu"]
 [ext_resource type="PackedScene" uid="uid://kq53w8e45jf1" path="res://objects/bottom_boundary.tscn" id="8_imi4i"]
@@ -58,14 +57,9 @@ initial_population = 1
 tile_set = SubResource("TileSet_sloau")
 format = 2
 script = ExtResource("6_34qxq")
-height = 10
-width = 20
+height = 4
+width = 4
 
-[node name="Camera2D" type="Camera2D" parent="."]
-script = ExtResource("6_4hqwx")
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="PopulationGraph" type="Node2D" parent="CanvasLayer"]
+[node name="PopulationGraph" type="Node2D" parent="."]
 script = ExtResource("12_ox8fw")
 size = Vector2i(200, 100)
