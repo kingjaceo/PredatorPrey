@@ -20,6 +20,8 @@ func _process(delta):
 	if baby_progress > stats.baby_requirement:
 		_spawn_baby()
 	if lifetime <= 0:
+		if "player" in get_groups():
+			Global.game_over()
 		queue_free()
 		
 	_correct_position()
@@ -44,6 +46,8 @@ func _eat(trigger: Area2D):
 	lifetime += food.stats.food_amount
 	food.queue_free()
 	Events.food_eaten.emit(self, food)
+	if "player" in food.get_groups():
+		Global.game_over()
 
 
 func _spawn_baby():

@@ -1,80 +1,68 @@
-[gd_scene load_steps=15 format=3 uid="uid://b7xmp3h05tndc"]
+[gd_scene load_steps=14 format=3 uid="uid://blqdsnigynh3f"]
 
-[ext_resource type="Script" path="res://world/spawner.gd" id="1_k6jfh"]
-[ext_resource type="Script" path="res://world/time_controller.gd" id="1_ovh4i"]
-[ext_resource type="PackedScene" uid="uid://bsebbdh5hyqsm" path="res://objects/seed.tscn" id="2_lsoxb"]
-[ext_resource type="PackedScene" uid="uid://bxvkkdce3ffhv" path="res://entities/cricket.tscn" id="3_wgqgu"]
-[ext_resource type="PackedScene" uid="uid://4affcnfwqt23" path="res://entities/frog.tscn" id="4_wk4aw"]
-[ext_resource type="Texture2D" uid="uid://bt13rb4d1ufs6" path="res://objects/grass_tile.png" id="5_m2inl"]
-[ext_resource type="PackedScene" uid="uid://brj0xrmvnulfl" path="res://entities/snake.tscn" id="8_3v5e3"]
-[ext_resource type="Script" path="res://world/player_spawner.gd" id="8_f5ygd"]
-<<<<<<< HEAD
-[ext_resource type="PackedScene" uid="uid://j71ucboxin1s" path="res://entities/player.tscn" id="10_p7g32"]
-=======
-[ext_resource type="PackedScene" uid="uid://b6c8qgemuox7b" path="res://entities/eagle.tscn" id="9_hlsaq"]
->>>>>>> 5966b9640a92c09c23c82371949663693621dd17
-[ext_resource type="Script" path="res://world/game_background.gd" id="10_yfeb6"]
-[ext_resource type="PackedScene" uid="uid://b25pavk0b51r3" path="res://ui/stats_display.tscn" id="12_ynu4c"]
+[ext_resource type="Script" path="res://world/world.gd" id="1_6gxo1"]
+[ext_resource type="Script" path="res://world/time_controller.gd" id="1_8el4m"]
+[ext_resource type="Texture2D" uid="uid://bt13rb4d1ufs6" path="res://objects/grass_tile.png" id="2_8xkas"]
+[ext_resource type="Script" path="res://world/game_background.gd" id="3_1nj8p"]
+[ext_resource type="Script" path="res://world/spawner.gd" id="4_b4b1y"]
+[ext_resource type="PackedScene" uid="uid://bsebbdh5hyqsm" path="res://objects/seed.tscn" id="5_2nuln"]
+[ext_resource type="PackedScene" uid="uid://bxvkkdce3ffhv" path="res://entities/cricket.tscn" id="6_e07bf"]
+[ext_resource type="PackedScene" uid="uid://4affcnfwqt23" path="res://entities/frog.tscn" id="7_firo0"]
+[ext_resource type="PackedScene" uid="uid://brj0xrmvnulfl" path="res://entities/snake.tscn" id="8_kltwb"]
+[ext_resource type="PackedScene" uid="uid://jh47cb3csq7" path="res://entities/eagle.tscn" id="9_a5mfk"]
+[ext_resource type="Script" path="res://world/menus.gd" id="21_s3ftw"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j706w"]
-texture = ExtResource("5_m2inl")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_umiln"]
+texture = ExtResource("2_8xkas")
 texture_region_size = Vector2i(256, 256)
 0:0/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_sloau"]
+[sub_resource type="TileSet" id="TileSet_lcfv7"]
 tile_size = Vector2i(256, 256)
-sources/0 = SubResource("TileSetAtlasSource_j706w")
+sources/0 = SubResource("TileSetAtlasSource_umiln")
 
 [node name="World" type="Node2D"]
-script = ExtResource("1_ovh4i")
+script = ExtResource("1_6gxo1")
 
 [node name="Background" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_sloau")
+tile_set = SubResource("TileSet_lcfv7")
 format = 2
-script = ExtResource("10_yfeb6")
+script = ExtResource("3_1nj8p")
 height = 8
 width = 12
 
 [node name="SeedSpawner" type="Node" parent="."]
-script = ExtResource("1_k6jfh")
-scene = ExtResource("2_lsoxb")
+script = ExtResource("4_b4b1y")
+scene = ExtResource("5_2nuln")
 time_between_spawns_s = 0.2
-max_y = 1900.0
-max_x = 2796.15
 initial_population = 200
 
 [node name="CricketSpawner" type="Node" parent="."]
-script = ExtResource("1_k6jfh")
-scene = ExtResource("3_wgqgu")
-time_between_spawns_s = -1.0
-max_y = 1900.0
-max_x = 2800.0
-initial_population = 5
+script = ExtResource("4_b4b1y")
+scene = ExtResource("6_e07bf")
+time_between_spawns_s = 20.0
+initial_population = 10
 
 [node name="FrogSpawner" type="Node" parent="."]
-script = ExtResource("1_k6jfh")
-scene = ExtResource("4_wk4aw")
-time_between_spawns_s = 60.0
-max_y = 1800.0
-max_x = 2600.0
-
-[node name="SnakeSpawner" type="Node" parent="."]
-script = ExtResource("1_k6jfh")
-scene = ExtResource("8_3v5e3")
-time_between_spawns_s = 90.0
-max_y = 2000.0
-max_x = 3000.0
+script = ExtResource("4_b4b1y")
+scene = ExtResource("7_firo0")
+time_between_spawns_s = 30.0
 initial_population = 3
 
+[node name="SnakeSpawner" type="Node" parent="."]
+script = ExtResource("4_b4b1y")
+scene = ExtResource("8_kltwb")
+time_between_spawns_s = 60.0
+initial_population = 2
+
 [node name="EagleSpawner" type="Node" parent="."]
-script = ExtResource("1_k6jfh")
-scene = ExtResource("9_hlsaq")
-time_between_spawns_s = 120.0
-max_y = 1800.0
-max_x = 2600.0
+script = ExtResource("4_b4b1y")
+scene = ExtResource("9_a5mfk")
+time_between_spawns_s = 90.0
+initial_population = 1
 
-[node name="PlayerSpawner" type="Node" parent="."]
-script = ExtResource("8_f5ygd")
-player_scene = ExtResource("10_p7g32")
+[node name="Menus" type="CanvasLayer" parent="."]
+script = ExtResource("21_s3ftw")
 
-[node name="StatsDisplay" parent="." instance=ExtResource("12_ynu4c")]
+[node name="TimeController" type="Node" parent="."]
+script = ExtResource("1_8el4m")

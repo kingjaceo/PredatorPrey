@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EatFoodObjective" load_steps=6 format=3 uid="uid://dkc4s1th5d4ka"]
+
+[ext_resource type="Script" path="res://objectives/eat_food_objective.gd" id="1_1on0s"]
+[ext_resource type="Script" path="res://objectives/victory_reward.gd" id="1_5suij"]
+[ext_resource type="Script" path="res://objectives/eat_food_trigger.gd" id="2_422nt"]
+
+[sub_resource type="Resource" id="Resource_2mfnx"]
+script = ExtResource("1_5suij")
+
+[sub_resource type="Resource" id="Resource_re2lj"]
+script = ExtResource("2_422nt")
+target_amount = 1.0
+target_food_type = "snake"
+
+[resource]
+script = ExtResource("1_1on0s")
+name = "Eat some snakes!"
+description = "If you do this, you win!!!"
+objective_type = 1
+completion_reward = SubResource("Resource_2mfnx")
+trigger = SubResource("Resource_re2lj")
+accepted = false
+completed = false

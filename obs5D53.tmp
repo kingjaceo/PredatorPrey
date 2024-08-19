@@ -1,0 +1,82 @@
+[gd_scene load_steps=12 format=3 uid="uid://cp5aav1l7oywg"]
+
+[ext_resource type="Script" path="res://debug_controller.gd" id="1_orppp"]
+[ext_resource type="Texture2D" uid="uid://bpqbhyb35a5sb" path="res://entities/cricket_sprite.png" id="2_hdgo4"]
+[ext_resource type="Texture2D" uid="uid://bahmool2tnyfg" path="res://entities/frog_sprite.png" id="3_5xbye"]
+[ext_resource type="Script" path="res://button_spawner.gd" id="3_e5n4k"]
+[ext_resource type="PackedScene" uid="uid://bxvkkdce3ffhv" path="res://entities/cricket.tscn" id="4_6hww7"]
+[ext_resource type="Texture2D" uid="uid://b8a4imw1c5fgx" path="res://snake_sprite.png" id="4_rr5th"]
+[ext_resource type="Texture2D" uid="uid://k5tktjeecli5" path="res://eagle_sprite.png" id="5_p8pot"]
+[ext_resource type="PackedScene" uid="uid://4affcnfwqt23" path="res://entities/frog.tscn" id="6_xtjkp"]
+[ext_resource type="PackedScene" uid="uid://brj0xrmvnulfl" path="res://entities/snake.tscn" id="8_mb588"]
+[ext_resource type="PackedScene" uid="uid://jh47cb3csq7" path="res://entities/eagle.tscn" id="10_bacib"]
+[ext_resource type="Script" path="res://ui/population_graph.gd" id="11_bk6ub"]
+
+[node name="Camera2D" type="Camera2D"]
+script = ExtResource("1_orppp")
+
+[node name="ObserverUI" type="CanvasLayer" parent="."]
+
+[node name="GridContainer" type="GridContainer" parent="ObserverUI"]
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 161.0
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+
+[node name="CrickerSpawner" type="Button" parent="ObserverUI/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+icon = ExtResource("2_hdgo4")
+icon_alignment = 1
+expand_icon = true
+script = ExtResource("3_e5n4k")
+scene = ExtResource("4_6hww7")
+
+[node name="FrogSpawner" type="Button" parent="ObserverUI/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+icon = ExtResource("3_5xbye")
+expand_icon = true
+script = ExtResource("3_e5n4k")
+scene = ExtResource("6_xtjkp")
+
+[node name="SnakeSpawner" type="Button" parent="ObserverUI/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+icon = ExtResource("4_rr5th")
+expand_icon = true
+script = ExtResource("3_e5n4k")
+scene = ExtResource("8_mb588")
+
+[node name="EagleSpawner" type="Button" parent="ObserverUI/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+icon = ExtResource("5_p8pot")
+expand_icon = true
+script = ExtResource("3_e5n4k")
+scene = ExtResource("10_bacib")
+
+[node name="PopulationGraph" type="Control" parent="ObserverUI"]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -323.0
+offset_top = -167.0
+grow_horizontal = 0
+grow_vertical = 0
+script = ExtResource("11_bk6ub")
+size = Vector2i(300, 150)
+
+[connection signal="pressed" from="ObserverUI/GridContainer/CrickerSpawner" to="ObserverUI/GridContainer/CrickerSpawner" method="_spawn_new_scene"]
+[connection signal="pressed" from="ObserverUI/GridContainer/FrogSpawner" to="ObserverUI/GridContainer/FrogSpawner" method="_spawn_new_scene"]
+[connection signal="pressed" from="ObserverUI/GridContainer/SnakeSpawner" to="ObserverUI/GridContainer/SnakeSpawner" method="_spawn_new_scene"]
+[connection signal="pressed" from="ObserverUI/GridContainer/EagleSpawner" to="ObserverUI/GridContainer/EagleSpawner" method="_spawn_new_scene"]

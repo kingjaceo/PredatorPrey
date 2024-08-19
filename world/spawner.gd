@@ -2,9 +2,7 @@ class_name Spawner
 extends Node
 
 @export var scene: PackedScene
-@export var time_between_spawns_s: float = 2
-@export var max_y: float
-@export var max_x: float
+@export var time_between_spawns_s: float = -1
 @export var initial_population: int = 0
 
 func _ready():
@@ -19,6 +17,6 @@ func _ready():
 
 func _spawn_new_scene():
 	var new_instance = scene.instantiate()
-	var new_position = Vector2(randf_range(0, max_x), randf_range(0, max_y))
+	var new_position = Vector2(randf_range(0, Global.level_size.x), randf_range(0, Global.level_size.y))
 	new_instance.position = new_position
 	add_child(new_instance)

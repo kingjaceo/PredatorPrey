@@ -1,33 +1,29 @@
 [gd_resource type="Theme" load_steps=8 format=3 uid="uid://twbyj3fev8td"]
 
-[ext_resource type="Texture2D" uid="uid://pnnt25ywmvci" path="res://button_asset.png" id="1_3mska"]
-[ext_resource type="Texture2D" uid="uid://bwhnbn4aya0ek" path="res://panel_asset.png" id="1_8wqjv"]
+[ext_resource type="Texture2D" uid="uid://c7denqdh527i1" path="res://button_asset.png" id="1_3mska"]
+[ext_resource type="StyleBox" uid="uid://bpop7kyyfd0w3" path="res://ui/button_texture.tres" id="1_3u0st"]
 [ext_resource type="FontFile" uid="uid://dd8cc15dnc1fx" path="res://jessie_font.ttf" id="2_lonq4"]
+[ext_resource type="Texture2D" uid="uid://bb6ylgeblk3tl" path="res://panel_asset_2.png" id="3_tvapo"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1wtta"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bvn5f"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ul8wv"]
 texture = ExtResource("1_3mska")
-texture_margin_left = 16.0
-texture_margin_top = 16.0
-texture_margin_right = 16.0
-texture_margin_bottom = 16.0
-region_rect = Rect2(70, 104, 114.832, 44)
+texture_margin_left = 30.0
+texture_margin_top = 30.0
+texture_margin_right = 30.0
+texture_margin_bottom = 30.0
+region_rect = Rect2(18, 84, 219, 89)
+modulate_color = Color(0.521569, 0.521569, 0.521569, 1)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_gscgb"]
-texture = ExtResource("1_8wqjv")
-texture_margin_left = 36.0
-texture_margin_top = 36.0
-texture_margin_right = 36.0
-texture_margin_bottom = 36.0
-expand_margin_left = 36.0
-expand_margin_top = 36.0
-expand_margin_right = 36.0
-expand_margin_bottom = 36.0
-region_rect = Rect2(29, 23, 201, 209)
+texture = ExtResource("3_tvapo")
+texture_margin_left = 64.0
+texture_margin_top = 64.0
+texture_margin_right = 64.0
+texture_margin_bottom = 64.0
+region_rect = Rect2(7, 16, 247, 232)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_r6wyr"]
-texture = ExtResource("1_8wqjv")
+texture = ExtResource("3_tvapo")
 texture_margin_left = 64.0
 texture_margin_top = 64.0
 texture_margin_right = 64.0
@@ -37,8 +33,9 @@ texture_margin_bottom = 64.0
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
 Button/constants/outline_size = 4
 Button/font_sizes/font_size = 30
-Button/styles/focus = SubResource("StyleBoxEmpty_1wtta")
-Button/styles/normal = SubResource("StyleBoxTexture_bvn5f")
+Button/styles/focus = ExtResource("1_3u0st")
+Button/styles/hover = SubResource("StyleBoxTexture_ul8wv")
+Button/styles/normal = ExtResource("1_3u0st")
 Fonts/fonts/large = ExtResource("2_lonq4")
 Fonts/fonts/normal = ExtResource("2_lonq4")
 Label/colors/font_outline_color = Color(0, 0, 0, 1)

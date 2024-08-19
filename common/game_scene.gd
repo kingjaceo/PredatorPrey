@@ -16,7 +16,7 @@ func _ready():
 
 func _transition():
 	Global.transition_to(transition_scene)
-	pass
+
 
 func _exit():
 	get_tree().quit()
@@ -24,7 +24,3 @@ func _exit():
 
 func reload():
 	reloaded.emit()
-
-
-func _on_area_2d_area_entered():
-	pass # Replace with function body.

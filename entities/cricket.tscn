@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bxvkkdce3ffhv"]
+[gd_scene load_steps=15 format=3 uid="uid://bxvkkdce3ffhv"]
 
 [ext_resource type="Script" path="res://entities/entity.gd" id="1_4rcdh"]
 [ext_resource type="Script" path="res://entities/controllers/AIController.gd" id="2_be7gl"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" path="res://entities/behaviors/flee.gd" id="5_2mv76"]
 [ext_resource type="Script" path="res://entities/behaviors/direction_debugger.gd" id="6_h430b"]
 [ext_resource type="Script" path="res://entities/behaviors/chase.gd" id="7_p5pyf"]
-[ext_resource type="Script" path="res://entities/behaviors/eat.gd" id="8_wjhut"]
 [ext_resource type="Script" path="res://entities/vision.gd" id="10_dio75"]
 [ext_resource type="Script" path="res://entities/controllers/controller_debugger.gd" id="11_n0j7o"]
 
@@ -52,20 +51,19 @@ chase_time_s = 10.0
 visible = false
 script = ExtResource("4_4m1xe")
 
-[node name="Eat" type="Node" parent="Controller"]
-script = ExtResource("8_wjhut")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("3_uhonp")
 
 [node name="Body" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
 shape = SubResource("CircleShape2D_kwgtw")
 
 [node name="FoodDetector" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 script = ExtResource("10_dio75")
 
@@ -73,11 +71,13 @@ script = ExtResource("10_dio75")
 shape = SubResource("CircleShape2D_uvic4")
 
 [node name="ThreatDetector" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 12
 script = ExtResource("10_dio75")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ThreatDetector"]
+position = Vector2(-10, -2)
 shape = SubResource("CircleShape2D_66fwy")
 
 [node name="Debugger" type="Label" parent="."]

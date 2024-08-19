@@ -1,16 +1,17 @@
-[gd_scene load_steps=12 format=3 uid="uid://jh47cb3csq7"]
+[gd_scene load_steps=13 format=3 uid="uid://brj0xrmvnulfl"]
 
-[ext_resource type="Script" path="res://entities/entity.gd" id="1_0qotg"]
-[ext_resource type="Resource" uid="uid://begn6el3kdllf" path="res://entities/eagle_stats.tres" id="2_f6gyg"]
-[ext_resource type="Texture2D" uid="uid://k5tktjeecli5" path="res://eagle_sprite.png" id="3_jg4jp"]
-[ext_resource type="Script" path="res://entities/controllers/AIController.gd" id="4_15yyg"]
-[ext_resource type="Script" path="res://entities/behaviors/wander.gd" id="5_ce27c"]
-[ext_resource type="Script" path="res://entities/behaviors/chase.gd" id="7_5lp6f"]
-[ext_resource type="Script" path="res://entities/vision.gd" id="9_2601r"]
-[ext_resource type="Script" path="res://entities/controllers/controller_debugger.gd" id="10_wypy4"]
+[ext_resource type="Script" path="res://entities/entity.gd" id="1_7fmso"]
+[ext_resource type="Script" path="res://entities/controllers/AIController.gd" id="2_3jiud"]
+[ext_resource type="Resource" uid="uid://bmgjo3a627ta2" path="res://entities/snake_stats.tres" id="2_x143b"]
+[ext_resource type="Script" path="res://entities/behaviors/wander.gd" id="3_ki6lm"]
+[ext_resource type="Script" path="res://entities/behaviors/chase.gd" id="4_53kue"]
+[ext_resource type="Texture2D" uid="uid://c4hluuy7aj8jl" path="res://icon.svg" id="5_pw2lb"]
+[ext_resource type="Script" path="res://entities/vision.gd" id="6_a4dsu"]
+[ext_resource type="Script" path="res://entities/behaviors/eat.gd" id="7_s2w07"]
+[ext_resource type="Script" path="res://entities/controllers/controller_debugger.gd" id="7_tujkl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvhq"]
-radius = 11.6619
+radius = 59.0762
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ohftr"]
 radius = 100.0
@@ -18,51 +19,50 @@ radius = 100.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_o7fjc"]
 radius = 100.0
 
-[node name="Eagle" type="Node2D" groups=["eagle"]]
-script = ExtResource("1_0qotg")
-stats = ExtResource("2_f6gyg")
+[node name="Snake" type="Node2D"]
+script = ExtResource("1_7fmso")
+stats = ExtResource("2_x143b")
 
 [node name="Controller" type="Node" parent="."]
-script = ExtResource("4_15yyg")
+script = ExtResource("2_3jiud")
 
 [node name="Wander" type="Node" parent="Controller"]
-script = ExtResource("5_ce27c")
+script = ExtResource("3_ki6lm")
 
 [node name="Chase" type="Node" parent="Controller"]
-script = ExtResource("7_5lp6f")
+script = ExtResource("4_53kue")
+
+[node name="Eat" type="Node" parent="Controller"]
+script = ExtResource("7_s2w07")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.609375, 0.609375)
-texture = ExtResource("3_jg4jp")
+texture = ExtResource("5_pw2lb")
 
 [node name="Body" type="Area2D" parent="."]
-visible = false
-collision_layer = 16
-collision_mask = 12
+collision_layer = 8
+collision_mask = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Body"]
 shape = SubResource("CircleShape2D_ihvhq")
 
 [node name="FoodDetector" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
-collision_mask = 12
-script = ExtResource("9_2601r")
+collision_mask = 6
+script = ExtResource("6_a4dsu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FoodDetector"]
 shape = SubResource("CircleShape2D_ohftr")
 
 [node name="ThreatDetector" type="Area2D" parent="."]
-visible = false
 collision_layer = 0
-collision_mask = 0
-script = ExtResource("9_2601r")
+collision_mask = 16
+script = ExtResource("6_a4dsu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ThreatDetector"]
 shape = SubResource("CircleShape2D_o7fjc")
 
 [node name="Debugger" type="Label" parent="."]
-visible = false
 z_index = 2
 anchors_preset = 5
 anchor_left = 0.5
@@ -74,7 +74,7 @@ offset_bottom = 38.0
 grow_horizontal = 2
 text = "BEHAVIOR"
 horizontal_alignment = 1
-script = ExtResource("10_wypy4")
+script = ExtResource("7_tujkl")
 
 [connection signal="area_entered" from="Body" to="." method="_eat"]
 [connection signal="closer_target_detected" from="FoodDetector" to="Controller/Chase" method="_on_trigger"]

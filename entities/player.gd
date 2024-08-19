@@ -12,6 +12,7 @@ func _ready():
 
 
 func change_data(new_data: EntityData):
+	_spawn_baby()
 	stats = new_data
 	sprite.texture = stats.sprite_texture
 	_reset()

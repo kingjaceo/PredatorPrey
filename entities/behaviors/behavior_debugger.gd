@@ -10,7 +10,7 @@ func _ready():
 	behavior = get_parent()
 
 
-func _process(delta):
+func _process(_delta):
 	queue_redraw()
 
 

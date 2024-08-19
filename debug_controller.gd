@@ -39,7 +39,6 @@ func _check_change_position():
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.is_pressed() and not event.is_echo():
-			var mouse_position = event.position
 			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 				zoom = clamp(zoom + zoom_step, min_zoom, max_zoom)
 			else : if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:

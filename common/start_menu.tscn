@@ -1,12 +1,11 @@
 [gd_scene load_steps=4 format=3 uid="uid://cs08dwnrlb8sc"]
 
-[ext_resource type="Script" path="res://common/game_scene.gd" id="1_flmls"]
+[ext_resource type="Script" path="res://common/start_menu.gd" id="1_duepq"]
 [ext_resource type="Theme" uid="uid://twbyj3fev8td" path="res://common/main_theme.tres" id="2_0lc5h"]
 [ext_resource type="PackedScene" uid="uid://cxt7t7ut888sa" path="res://start_background.tscn" id="2_wrycw"]
 
 [node name="StartMenu" type="Node2D"]
-script = ExtResource("1_flmls")
-transition_scene_path = "res://world/world.tscn"
+script = ExtResource("1_duepq")
 
 [node name="StartBackground" parent="." instance=ExtResource("2_wrycw")]
 
@@ -39,7 +38,12 @@ columns = 2
 [node name="StartGame" type="Button" parent="CanvasLayer/VBoxContainer/GridContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
-text = "Start Game"
+text = "Play Game"
+
+[node name="Observe" type="Button" parent="CanvasLayer/VBoxContainer/GridContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Observe"
 
 [node name="Exit" type="Button" parent="CanvasLayer/VBoxContainer/GridContainer"]
 layout_mode = 2
@@ -53,5 +57,6 @@ size_flags_stretch_ratio = 0.25
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[connection signal="pressed" from="CanvasLayer/VBoxContainer/GridContainer/StartGame" to="." method="_transition"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/GridContainer/StartGame" to="." method="_load_world_with_player"]
+[connection signal="pressed" from="CanvasLayer/VBoxContainer/GridContainer/Observe" to="." method="_load_world_with_observer"]
 [connection signal="pressed" from="CanvasLayer/VBoxContainer/GridContainer/Exit" to="." method="_exit"]

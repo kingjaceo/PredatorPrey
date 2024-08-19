@@ -7,6 +7,7 @@ var current_amount: float = 0
 
 
 func activate():
+	current_amount = 0
 	Events.food_eaten.connect(_on_food_eaten)
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://4affcnfwqt23"]
+[gd_scene load_steps=13 format=3 uid="uid://4affcnfwqt23"]
 
 [ext_resource type="Script" path="res://entities/entity.gd" id="1_tyo1j"]
 [ext_resource type="Resource" uid="uid://l2iscswdrkxd" path="res://entities/frog_stats.tres" id="2_ekmge"]
@@ -8,7 +8,6 @@
 [ext_resource type="Script" path="res://entities/vision.gd" id="4_1myky"]
 [ext_resource type="Script" path="res://entities/behaviors/chase.gd" id="4_ykvdh"]
 [ext_resource type="Script" path="res://entities/controllers/controller_debugger.gd" id="7_1kk2m"]
-[ext_resource type="Script" path="res://entities/behaviors/eat.gd" id="7_2kc8h"]
 [ext_resource type="Script" path="res://entities/behaviors/flee.gd" id="8_ppswi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ihvhq"]
@@ -33,18 +32,15 @@ script = ExtResource("3_sttn0")
 [node name="Chase" type="Node" parent="Controller"]
 script = ExtResource("4_ykvdh")
 
-[node name="Eat" type="Node" parent="Controller"]
-script = ExtResource("7_2kc8h")
-
 [node name="Flee" type="Node" parent="Controller"]
 script = ExtResource("8_ppswi")
-flee_time_s = 2.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.609375, 0.609375)
 texture = ExtResource("3_va4so")
 
 [node name="Body" type="Area2D" parent="."]
+visible = false
 collision_layer = 4
 collision_mask = 2
 
@@ -52,6 +48,7 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_ihvhq")
 
 [node name="FoodDetector" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_1myky")
@@ -60,6 +57,7 @@ script = ExtResource("4_1myky")
 shape = SubResource("CircleShape2D_ohftr")
 
 [node name="ThreatDetector" type="Area2D" parent="."]
+visible = false
 collision_layer = 0
 collision_mask = 24
 script = ExtResource("4_1myky")

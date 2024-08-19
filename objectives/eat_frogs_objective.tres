@@ -1,7 +1,15 @@
-[gd_resource type="Resource" script_class="EatFoodObjective" load_steps=4 format=3 uid="uid://dvlbfxcljhjlg"]
+[gd_resource type="Resource" script_class="EatFoodObjective" load_steps=8 format=3 uid="uid://dvlbfxcljhjlg"]
 
+[ext_resource type="Resource" uid="uid://begn6el3kdllf" path="res://entities/eagle_stats.tres" id="1_2l10p"]
 [ext_resource type="Script" path="res://objectives/eat_food_objective.gd" id="1_kow67"]
 [ext_resource type="Script" path="res://objectives/eat_food_trigger.gd" id="2_dwnmx"]
+[ext_resource type="Resource" uid="uid://dkc4s1th5d4ka" path="res://objectives/eat_snakes_objective.tres" id="2_omyen"]
+[ext_resource type="Script" path="res://objectives/change_creature_reward.gd" id="2_yvxlr"]
+
+[sub_resource type="Resource" id="Resource_2tt5y"]
+script = ExtResource("2_yvxlr")
+creature_data = ExtResource("1_2l10p")
+next_objective = ExtResource("2_omyen")
 
 [sub_resource type="Resource" id="Resource_4tqys"]
 script = ExtResource("2_dwnmx")
@@ -13,6 +21,7 @@ script = ExtResource("1_kow67")
 name = "Eat Frogs"
 description = "Eat enough frogs and maybe you could become an eagle!"
 objective_type = 1
+completion_reward = SubResource("Resource_2tt5y")
 trigger = SubResource("Resource_4tqys")
 accepted = false
 completed = false

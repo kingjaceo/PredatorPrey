@@ -17,4 +17,4 @@ max_lifetime = 25.0
 baby_scene_path = "res://entities/frog.tscn"
 sprite_texture = ExtResource("2_hbbf2")
 prey_types = Array[int]([2])
-predator_types = Array[int]([3, 4])
+predator_types = Array[int]([4, 5])

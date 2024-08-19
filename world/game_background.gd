@@ -1,4 +1,3 @@
-@tool
 extends TileMap
 
 @export var height: int = 16
